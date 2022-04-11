@@ -1,0 +1,713 @@
+[2022/04/10 10:08:22] root INFO: 
+===========================================================
+==        PaddleClas is powered by PaddlePaddle !        ==
+===========================================================
+==                                                       ==
+==   For more info please go to the following website.   ==
+==                                                       ==
+==       https://github.com/PaddlePaddle/PaddleClas      ==
+===========================================================
+
+[2022/04/10 10:08:22] root INFO: Arch : 
+[2022/04/10 10:08:22] root INFO:     backbone : ResNet101
+[2022/04/10 10:08:22] root INFO:     backbone_weight : ./weights/ResNet101_pretrained
+[2022/04/10 10:08:22] root INFO:     class_num : 20
+[2022/04/10 10:08:22] root INFO:     lam : 0.1
+[2022/04/10 10:08:22] root INFO:     name : ResNet_CSRA
+[2022/04/10 10:08:22] root INFO:     num_heads : 1
+[2022/04/10 10:08:22] root INFO:     use_ssld : False
+[2022/04/10 10:08:22] root INFO: DataLoader : 
+[2022/04/10 10:08:22] root INFO:     Eval : 
+[2022/04/10 10:08:22] root INFO:         dataset : 
+[2022/04/10 10:08:22] root INFO:             cls_label_path : /home/yzj6850/zihua/datasets/VOCdevkit/VOC2007/labels_test.txt
+[2022/04/10 10:08:22] root INFO:             image_root : /home/yzj6850/zihua/datasets/VOCdevkit/VOC2007/
+[2022/04/10 10:08:22] root INFO:             name : MultiLabelDataset
+[2022/04/10 10:08:22] root INFO:             transform_ops : 
+[2022/04/10 10:08:22] root INFO:                 DecodeImage : 
+[2022/04/10 10:08:22] root INFO:                     channel_first : False
+[2022/04/10 10:08:22] root INFO:                     to_rgb : True
+[2022/04/10 10:08:22] root INFO:                 ResizeImage : 
+[2022/04/10 10:08:22] root INFO:                     size : 480
+[2022/04/10 10:08:22] root INFO:                 CropImage : 
+[2022/04/10 10:08:22] root INFO:                     size : 448
+[2022/04/10 10:08:22] root INFO:                 NormalizeImage : 
+[2022/04/10 10:08:22] root INFO:                     mean : [0.485, 0.456, 0.406]
+[2022/04/10 10:08:22] root INFO:                     order : 
+[2022/04/10 10:08:22] root INFO:                     scale : 1.0/255.0
+[2022/04/10 10:08:22] root INFO:                     std : [0.229, 0.224, 0.225]
+[2022/04/10 10:08:22] root INFO:         loader : 
+[2022/04/10 10:08:22] root INFO:             num_workers : 4
+[2022/04/10 10:08:22] root INFO:             use_shared_memory : True
+[2022/04/10 10:08:22] root INFO:         sampler : 
+[2022/04/10 10:08:22] root INFO:             batch_size : 16
+[2022/04/10 10:08:22] root INFO:             drop_last : False
+[2022/04/10 10:08:22] root INFO:             name : DistributedBatchSampler
+[2022/04/10 10:08:22] root INFO:             shuffle : False
+[2022/04/10 10:08:22] root INFO:     Train : 
+[2022/04/10 10:08:22] root INFO:         dataset : 
+[2022/04/10 10:08:22] root INFO:             cls_label_path : /home/yzj6850/zihua/datasets/VOCdevkit/VOC2007/labels_trainval.txt
+[2022/04/10 10:08:22] root INFO:             image_root : /home/yzj6850/zihua/datasets/VOCdevkit/VOC2007/
+[2022/04/10 10:08:22] root INFO:             name : MultiLabelDataset
+[2022/04/10 10:08:22] root INFO:             transform_ops : 
+[2022/04/10 10:08:22] root INFO:                 DecodeImage : 
+[2022/04/10 10:08:22] root INFO:                     channel_first : False
+[2022/04/10 10:08:22] root INFO:                     to_rgb : True
+[2022/04/10 10:08:22] root INFO:                 RandCropImage : 
+[2022/04/10 10:08:22] root INFO:                     scale : [0.7, 1.0]
+[2022/04/10 10:08:22] root INFO:                     size : 448
+[2022/04/10 10:08:22] root INFO:                 RandFlipImage : 
+[2022/04/10 10:08:22] root INFO:                     flip_code : 1
+[2022/04/10 10:08:22] root INFO:                 NormalizeImage : 
+[2022/04/10 10:08:22] root INFO:                     mean : [0.485, 0.456, 0.406]
+[2022/04/10 10:08:22] root INFO:                     order : 
+[2022/04/10 10:08:22] root INFO:                     scale : 1.0/255.0
+[2022/04/10 10:08:22] root INFO:                     std : [0.229, 0.224, 0.225]
+[2022/04/10 10:08:22] root INFO:         loader : 
+[2022/04/10 10:08:22] root INFO:             num_workers : 4
+[2022/04/10 10:08:22] root INFO:             use_shared_memory : True
+[2022/04/10 10:08:22] root INFO:         sampler : 
+[2022/04/10 10:08:22] root INFO:             batch_size : 16
+[2022/04/10 10:08:22] root INFO:             drop_last : False
+[2022/04/10 10:08:22] root INFO:             name : DistributedBatchSampler
+[2022/04/10 10:08:22] root INFO:             shuffle : True
+[2022/04/10 10:08:22] root INFO: Global : 
+[2022/04/10 10:08:22] root INFO:     checkpoints : None
+[2022/04/10 10:08:22] root INFO:     device : gpu
+[2022/04/10 10:08:22] root INFO:     epochs : 30
+[2022/04/10 10:08:22] root INFO:     eval_during_train : True
+[2022/04/10 10:08:22] root INFO:     eval_interval : 1
+[2022/04/10 10:08:22] root INFO:     image_shape : [3, 448, 448]
+[2022/04/10 10:08:22] root INFO:     output_dir : ./output/
+[2022/04/10 10:08:22] root INFO:     pretrained_model : None
+[2022/04/10 10:08:22] root INFO:     print_batch_step : 50
+[2022/04/10 10:08:22] root INFO:     save_inference_dir : ./inference
+[2022/04/10 10:08:22] root INFO:     save_interval : 1
+[2022/04/10 10:08:22] root INFO:     use_multilabel : True
+[2022/04/10 10:08:22] root INFO:     use_visualdl : False
+[2022/04/10 10:08:22] root INFO: Infer : 
+[2022/04/10 10:08:22] root INFO:     PostProcess : 
+[2022/04/10 10:08:22] root INFO:         class_id_map_file : None
+[2022/04/10 10:08:22] root INFO:         name : MultiLabelTopk
+[2022/04/10 10:08:22] root INFO:         topk : 5
+[2022/04/10 10:08:22] root INFO:     batch_size : 16
+[2022/04/10 10:08:22] root INFO:     infer_imgs : ./deploy/images/0517_2715693311.jpg
+[2022/04/10 10:08:22] root INFO:     transforms : 
+[2022/04/10 10:08:22] root INFO:         DecodeImage : 
+[2022/04/10 10:08:22] root INFO:             channel_first : False
+[2022/04/10 10:08:22] root INFO:             to_rgb : True
+[2022/04/10 10:08:22] root INFO:         ResizeImage : 
+[2022/04/10 10:08:22] root INFO:             size : 480
+[2022/04/10 10:08:22] root INFO:         CropImage : 
+[2022/04/10 10:08:22] root INFO:             size : 448
+[2022/04/10 10:08:22] root INFO:         NormalizeImage : 
+[2022/04/10 10:08:22] root INFO:             mean : [0.485, 0.456, 0.406]
+[2022/04/10 10:08:22] root INFO:             order : 
+[2022/04/10 10:08:22] root INFO:             scale : 1.0/255.0
+[2022/04/10 10:08:22] root INFO:             std : [0.229, 0.224, 0.225]
+[2022/04/10 10:08:22] root INFO:         ToCHWImage : None
+[2022/04/10 10:08:22] root INFO: Loss : 
+[2022/04/10 10:08:22] root INFO:     Eval : 
+[2022/04/10 10:08:22] root INFO:         MultiLabelLoss : 
+[2022/04/10 10:08:22] root INFO:             weight : 1.0
+[2022/04/10 10:08:22] root INFO:     Train : 
+[2022/04/10 10:08:22] root INFO:         MultiLabelLoss : 
+[2022/04/10 10:08:22] root INFO:             weight : 1.0
+[2022/04/10 10:08:22] root INFO: Metric : 
+[2022/04/10 10:08:22] root INFO:     Eval : 
+[2022/04/10 10:08:22] root INFO:         AccuracyScore : None
+[2022/04/10 10:08:22] root INFO:     Train : 
+[2022/04/10 10:08:22] root INFO:         AccuracyScore : None
+[2022/04/10 10:08:22] root INFO: Optimizer : 
+[2022/04/10 10:08:22] root INFO:     lr : 
+[2022/04/10 10:08:22] root INFO:         decay_epochs : [4, 8, 12, 16, 20, 24, 28]
+[2022/04/10 10:08:22] root INFO:         learning_rate : 0.01
+[2022/04/10 10:08:22] root INFO:         name : Piecewise
+[2022/04/10 10:08:22] root INFO:         values : [0.01, 0.001, 0.0001, 1e-05, 1e-06, 1e-07, 1e-08, 1e-09]
+[2022/04/10 10:08:22] root INFO:         warmup_epoch : 2
+[2022/04/10 10:08:22] root INFO:     momentum : 0.9
+[2022/04/10 10:08:22] root INFO:     name : Momentum
+[2022/04/10 10:08:22] root INFO:     regularizer : 
+[2022/04/10 10:08:22] root INFO:         coeff : 0.0001
+[2022/04/10 10:08:22] root INFO:         name : L2
+[2022/04/10 10:08:22] root INFO: profiler_options : None
+[2022/04/10 10:08:22] root INFO: train with paddle 2.2.2 and device CUDAPlace(0)
+[2022/04/10 10:08:26] root WARNING: The training strategy in config files provided by PaddleClas is based on 4 gpus. But the number of gpus is 1 in current training. Please modify the stategy (learning rate, batch size and so on) if use config files in PaddleClas to train.
+[2022/04/10 10:08:29] root INFO: [Train][Epoch 1/30][Iter: 0/314]lr: 0.00002, AccuracyScore: 0.53438, MultiLabelLoss: 0.71852, loss: 0.71852, batch_cost: 2.53575s, reader_cost: 1.18396, ips: 6.30978 images/sec, eta: 6:38:06
+[2022/04/10 10:08:45] root INFO: [Train][Epoch 1/30][Iter: 50/314]lr: 0.00081, AccuracyScore: 0.83578, MultiLabelLoss: 0.38945, loss: 0.38945, batch_cost: 0.32451s, reader_cost: 0.00158, ips: 49.30497 images/sec, eta: 0:50:40
+[2022/04/10 10:09:02] root INFO: [Train][Epoch 1/30][Iter: 100/314]lr: 0.00161, AccuracyScore: 0.88509, MultiLabelLoss: 0.30263, loss: 0.30263, batch_cost: 0.32633s, reader_cost: 0.00273, ips: 49.03004 images/sec, eta: 0:50:41
+[2022/04/10 10:09:18] root INFO: [Train][Epoch 1/30][Iter: 150/314]lr: 0.00240, AccuracyScore: 0.90373, MultiLabelLoss: 0.26339, loss: 0.26339, batch_cost: 0.32736s, reader_cost: 0.00306, ips: 48.87530 images/sec, eta: 0:50:34
+[2022/04/10 10:09:35] root INFO: [Train][Epoch 1/30][Iter: 200/314]lr: 0.00320, AccuracyScore: 0.91443, MultiLabelLoss: 0.23668, loss: 0.23668, batch_cost: 0.32785s, reader_cost: 0.00323, ips: 48.80279 images/sec, eta: 0:50:22
+[2022/04/10 10:09:51] root INFO: [Train][Epoch 1/30][Iter: 250/314]lr: 0.00400, AccuracyScore: 0.92306, MultiLabelLoss: 0.21377, loss: 0.21377, batch_cost: 0.32811s, reader_cost: 0.00348, ips: 48.76448 images/sec, eta: 0:50:08
+[2022/04/10 10:10:07] root INFO: [Train][Epoch 1/30][Iter: 300/314]lr: 0.00479, AccuracyScore: 0.93021, MultiLabelLoss: 0.19439, loss: 0.19439, batch_cost: 0.32816s, reader_cost: 0.00347, ips: 48.75699 images/sec, eta: 0:49:52
+[2022/04/10 10:10:12] root INFO: [Train][Epoch 1/30][Avg]AccuracyScore: 0.93185, MultiLabelLoss: 0.19025, loss: 0.19025
+[2022/04/10 10:10:12] root INFO: [Eval][Epoch 1][Iter: 0/310]MultiLabelLoss: 0.09693, loss: 0.09693, AccuracyScore: 0.97188, batch_cost: 0.68260s, reader_cost: 0.58494, ips: 23.43968 images/sec
+[2022/04/10 10:10:17] root INFO: [Eval][Epoch 1][Iter: 50/310]MultiLabelLoss: 0.04721, loss: 0.04721, AccuracyScore: 0.98750, batch_cost: 0.09791s, reader_cost: 0.00084, ips: 163.40846 images/sec
+[2022/04/10 10:10:22] root INFO: [Eval][Epoch 1][Iter: 100/310]MultiLabelLoss: 0.04023, loss: 0.04023, AccuracyScore: 0.98750, batch_cost: 0.09832s, reader_cost: 0.00078, ips: 162.74133 images/sec
+[2022/04/10 10:10:27] root INFO: [Eval][Epoch 1][Iter: 150/310]MultiLabelLoss: 0.04266, loss: 0.04266, AccuracyScore: 0.99375, batch_cost: 0.09853s, reader_cost: 0.00094, ips: 162.38785 images/sec
+[2022/04/10 10:10:32] root INFO: [Eval][Epoch 1][Iter: 200/310]MultiLabelLoss: 0.08431, loss: 0.08431, AccuracyScore: 0.96562, batch_cost: 0.09876s, reader_cost: 0.00092, ips: 162.00348 images/sec
+[2022/04/10 10:10:37] root INFO: [Eval][Epoch 1][Iter: 250/310]MultiLabelLoss: 0.06562, loss: 0.06562, AccuracyScore: 0.97500, batch_cost: 0.09902s, reader_cost: 0.00100, ips: 161.58535 images/sec
+[2022/04/10 10:10:42] root INFO: [Eval][Epoch 1][Iter: 300/310]MultiLabelLoss: 0.08911, loss: 0.08911, AccuracyScore: 0.96562, batch_cost: 0.09926s, reader_cost: 0.00107, ips: 161.19693 images/sec
+[2022/04/10 10:10:43] root INFO: [Eval][Epoch 1][Avg]MultiLabelLoss: 0.05919, loss: 0.05919, AccuracyScore: 0.97695, mAP: 0.85437
+[2022/04/10 10:10:44] root INFO: Already save model in ./output/ResNet_CSRA/best_model
+[2022/04/10 10:10:44] root INFO: [Eval][Epoch 1][best metric: 0.9769487075736334]
+[2022/04/10 10:10:46] root INFO: Already save model in ./output/ResNet_CSRA/epoch_1
+[2022/04/10 10:10:47] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:10:48] root INFO: [Train][Epoch 2/30][Iter: 0/314]lr: 0.00502, AccuracyScore: 0.97188, MultiLabelLoss: 0.08263, loss: 0.08263, batch_cost: 0.32948s, reader_cost: 0.00536, ips: 48.56118 images/sec, eta: 0:50:00
+[2022/04/10 10:11:04] root INFO: [Train][Epoch 2/30][Iter: 50/314]lr: 0.00581, AccuracyScore: 0.97267, MultiLabelLoss: 0.08113, loss: 0.08113, batch_cost: 0.32805s, reader_cost: 0.00193, ips: 48.77232 images/sec, eta: 0:49:30
+[2022/04/10 10:11:21] root INFO: [Train][Epoch 2/30][Iter: 100/314]lr: 0.00661, AccuracyScore: 0.97330, MultiLabelLoss: 0.07852, loss: 0.07852, batch_cost: 0.32753s, reader_cost: 0.00188, ips: 48.85000 images/sec, eta: 0:49:09
+[2022/04/10 10:11:37] root INFO: [Train][Epoch 2/30][Iter: 150/314]lr: 0.00740, AccuracyScore: 0.97405, MultiLabelLoss: 0.07567, loss: 0.07567, batch_cost: 0.32719s, reader_cost: 0.00198, ips: 48.90115 images/sec, eta: 0:48:50
+[2022/04/10 10:11:53] root INFO: [Train][Epoch 2/30][Iter: 200/314]lr: 0.00820, AccuracyScore: 0.97427, MultiLabelLoss: 0.07472, loss: 0.07472, batch_cost: 0.32708s, reader_cost: 0.00192, ips: 48.91793 images/sec, eta: 0:48:32
+[2022/04/10 10:12:10] root INFO: [Train][Epoch 2/30][Iter: 250/314]lr: 0.00900, AccuracyScore: 0.97511, MultiLabelLoss: 0.07298, loss: 0.07298, batch_cost: 0.32693s, reader_cost: 0.00167, ips: 48.94055 images/sec, eta: 0:48:15
+[2022/04/10 10:12:26] root INFO: [Train][Epoch 2/30][Iter: 300/314]lr: 0.00979, AccuracyScore: 0.97586, MultiLabelLoss: 0.07072, loss: 0.07072, batch_cost: 0.32807s, reader_cost: 0.00158, ips: 48.77030 images/sec, eta: 0:48:08
+[2022/04/10 10:12:31] root INFO: [Train][Epoch 2/30][Avg]AccuracyScore: 0.97607, MultiLabelLoss: 0.07010, loss: 0.07010
+[2022/04/10 10:12:31] root INFO: [Eval][Epoch 2][Iter: 0/310]MultiLabelLoss: 0.07704, loss: 0.07704, AccuracyScore: 0.96562, batch_cost: 0.79996s, reader_cost: 0.70104, ips: 20.00112 images/sec
+[2022/04/10 10:12:36] root INFO: [Eval][Epoch 2][Iter: 50/310]MultiLabelLoss: 0.03462, loss: 0.03462, AccuracyScore: 0.98125, batch_cost: 0.09807s, reader_cost: 0.00023, ips: 163.14891 images/sec
+[2022/04/10 10:12:41] root INFO: [Eval][Epoch 2][Iter: 100/310]MultiLabelLoss: 0.01749, loss: 0.01749, AccuracyScore: 0.99375, batch_cost: 0.09835s, reader_cost: 0.00060, ips: 162.68810 images/sec
+[2022/04/10 10:12:46] root INFO: [Eval][Epoch 2][Iter: 150/310]MultiLabelLoss: 0.02327, loss: 0.02327, AccuracyScore: 0.99063, batch_cost: 0.09819s, reader_cost: 0.00050, ips: 162.94158 images/sec
+[2022/04/10 10:12:51] root INFO: [Eval][Epoch 2][Iter: 200/310]MultiLabelLoss: 0.08849, loss: 0.08849, AccuracyScore: 0.97500, batch_cost: 0.09802s, reader_cost: 0.00052, ips: 163.23149 images/sec
+[2022/04/10 10:12:56] root INFO: [Eval][Epoch 2][Iter: 250/310]MultiLabelLoss: 0.03492, loss: 0.03492, AccuracyScore: 0.98750, batch_cost: 0.09805s, reader_cost: 0.00047, ips: 163.17686 images/sec
+[2022/04/10 10:13:01] root INFO: [Eval][Epoch 2][Iter: 300/310]MultiLabelLoss: 0.07385, loss: 0.07385, AccuracyScore: 0.96875, batch_cost: 0.09790s, reader_cost: 0.00041, ips: 163.43255 images/sec
+[2022/04/10 10:13:02] root INFO: [Eval][Epoch 2][Avg]MultiLabelLoss: 0.03912, loss: 0.03912, AccuracyScore: 0.98375, mAP: 0.92998
+[2022/04/10 10:13:03] root INFO: Already save model in ./output/ResNet_CSRA/best_model
+[2022/04/10 10:13:03] root INFO: [Eval][Epoch 2][best metric: 0.9837540408328584]
+[2022/04/10 10:13:05] root INFO: Already save model in ./output/ResNet_CSRA/epoch_2
+[2022/04/10 10:13:06] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:13:07] root INFO: [Train][Epoch 3/30][Iter: 0/314]lr: 0.01000, AccuracyScore: 0.98125, MultiLabelLoss: 0.05942, loss: 0.05942, batch_cost: 0.32945s, reader_cost: 0.00349, ips: 48.56619 images/sec, eta: 0:48:16
+[2022/04/10 10:13:24] root INFO: [Train][Epoch 3/30][Iter: 50/314]lr: 0.01000, AccuracyScore: 0.98137, MultiLabelLoss: 0.05630, loss: 0.05630, batch_cost: 0.33086s, reader_cost: 0.00371, ips: 48.35932 images/sec, eta: 0:48:12
+[2022/04/10 10:13:40] root INFO: [Train][Epoch 3/30][Iter: 100/314]lr: 0.01000, AccuracyScore: 0.98202, MultiLabelLoss: 0.05375, loss: 0.05375, batch_cost: 0.33052s, reader_cost: 0.00350, ips: 48.40810 images/sec, eta: 0:47:52
+[2022/04/10 10:13:56] root INFO: [Train][Epoch 3/30][Iter: 150/314]lr: 0.01000, AccuracyScore: 0.98183, MultiLabelLoss: 0.05379, loss: 0.05379, batch_cost: 0.32925s, reader_cost: 0.00283, ips: 48.59520 images/sec, eta: 0:47:25
+[2022/04/10 10:14:13] root INFO: [Train][Epoch 3/30][Iter: 200/314]lr: 0.01000, AccuracyScore: 0.98150, MultiLabelLoss: 0.05468, loss: 0.05468, batch_cost: 0.32884s, reader_cost: 0.00282, ips: 48.65578 images/sec, eta: 0:47:05
+[2022/04/10 10:14:29] root INFO: [Train][Epoch 3/30][Iter: 250/314]lr: 0.01000, AccuracyScore: 0.98126, MultiLabelLoss: 0.05484, loss: 0.05484, batch_cost: 0.32839s, reader_cost: 0.00261, ips: 48.72313 images/sec, eta: 0:46:45
+[2022/04/10 10:14:46] root INFO: [Train][Epoch 3/30][Iter: 300/314]lr: 0.01000, AccuracyScore: 0.98137, MultiLabelLoss: 0.05446, loss: 0.05446, batch_cost: 0.32816s, reader_cost: 0.00243, ips: 48.75691 images/sec, eta: 0:46:26
+[2022/04/10 10:14:50] root INFO: [Train][Epoch 3/30][Avg]AccuracyScore: 0.98143, MultiLabelLoss: 0.05438, loss: 0.05438
+[2022/04/10 10:14:50] root INFO: [Eval][Epoch 3][Iter: 0/310]MultiLabelLoss: 0.07487, loss: 0.07487, AccuracyScore: 0.97188, batch_cost: 0.78056s, reader_cost: 0.68140, ips: 20.49801 images/sec
+[2022/04/10 10:14:55] root INFO: [Eval][Epoch 3][Iter: 50/310]MultiLabelLoss: 0.05214, loss: 0.05214, AccuracyScore: 0.97500, batch_cost: 0.09800s, reader_cost: 0.00023, ips: 163.26150 images/sec
+[2022/04/10 10:15:00] root INFO: [Eval][Epoch 3][Iter: 100/310]MultiLabelLoss: 0.00821, loss: 0.00821, AccuracyScore: 0.99687, batch_cost: 0.09872s, reader_cost: 0.00057, ips: 162.08172 images/sec
+[2022/04/10 10:15:05] root INFO: [Eval][Epoch 3][Iter: 150/310]MultiLabelLoss: 0.01739, loss: 0.01739, AccuracyScore: 0.99687, batch_cost: 0.09863s, reader_cost: 0.00057, ips: 162.21840 images/sec
+[2022/04/10 10:15:10] root INFO: [Eval][Epoch 3][Iter: 200/310]MultiLabelLoss: 0.07057, loss: 0.07057, AccuracyScore: 0.97500, batch_cost: 0.09854s, reader_cost: 0.00061, ips: 162.36736 images/sec
+[2022/04/10 10:15:15] root INFO: [Eval][Epoch 3][Iter: 250/310]MultiLabelLoss: 0.04069, loss: 0.04069, AccuracyScore: 0.97812, batch_cost: 0.09835s, reader_cost: 0.00055, ips: 162.68523 images/sec
+[2022/04/10 10:15:20] root INFO: [Eval][Epoch 3][Iter: 300/310]MultiLabelLoss: 0.07423, loss: 0.07423, AccuracyScore: 0.97500, batch_cost: 0.09846s, reader_cost: 0.00059, ips: 162.49530 images/sec
+[2022/04/10 10:15:21] root INFO: [Eval][Epoch 3][Avg]MultiLabelLoss: 0.04209, loss: 0.04209, AccuracyScore: 0.98350, mAP: 0.93451
+[2022/04/10 10:15:21] root INFO: [Eval][Epoch 3][best metric: 0.9837540408328584]
+[2022/04/10 10:15:23] root INFO: Already save model in ./output/ResNet_CSRA/epoch_3
+[2022/04/10 10:15:24] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:15:25] root INFO: [Train][Epoch 4/30][Iter: 0/314]lr: 0.01000, AccuracyScore: 0.98750, MultiLabelLoss: 0.03496, loss: 0.03496, batch_cost: 0.32964s, reader_cost: 0.00446, ips: 48.53828 images/sec, eta: 0:46:34
+[2022/04/10 10:15:41] root INFO: [Train][Epoch 4/30][Iter: 50/314]lr: 0.01000, AccuracyScore: 0.98542, MultiLabelLoss: 0.04413, loss: 0.04413, batch_cost: 0.32901s, reader_cost: 0.00387, ips: 48.63137 images/sec, eta: 0:46:12
+[2022/04/10 10:15:58] root INFO: [Train][Epoch 4/30][Iter: 100/314]lr: 0.01000, AccuracyScore: 0.98589, MultiLabelLoss: 0.04358, loss: 0.04358, batch_cost: 0.32853s, reader_cost: 0.00304, ips: 48.70252 images/sec, eta: 0:45:52
+[2022/04/10 10:16:14] root INFO: [Train][Epoch 4/30][Iter: 150/314]lr: 0.01000, AccuracyScore: 0.98570, MultiLabelLoss: 0.04350, loss: 0.04350, batch_cost: 0.32835s, reader_cost: 0.00244, ips: 48.72836 images/sec, eta: 0:45:34
+[2022/04/10 10:16:31] root INFO: [Train][Epoch 4/30][Iter: 200/314]lr: 0.01000, AccuracyScore: 0.98554, MultiLabelLoss: 0.04427, loss: 0.04427, batch_cost: 0.32809s, reader_cost: 0.00217, ips: 48.76737 images/sec, eta: 0:45:15
+[2022/04/10 10:16:47] root INFO: [Train][Epoch 4/30][Iter: 250/314]lr: 0.01000, AccuracyScore: 0.98583, MultiLabelLoss: 0.04396, loss: 0.04396, batch_cost: 0.32781s, reader_cost: 0.00201, ips: 48.80886 images/sec, eta: 0:44:57
+[2022/04/10 10:17:03] root INFO: [Train][Epoch 4/30][Iter: 300/314]lr: 0.01000, AccuracyScore: 0.98570, MultiLabelLoss: 0.04424, loss: 0.04424, batch_cost: 0.32763s, reader_cost: 0.00187, ips: 48.83568 images/sec, eta: 0:44:39
+[2022/04/10 10:17:07] root INFO: [Train][Epoch 4/30][Avg]AccuracyScore: 0.98579, MultiLabelLoss: 0.04415, loss: 0.04415
+[2022/04/10 10:17:08] root INFO: [Eval][Epoch 4][Iter: 0/310]MultiLabelLoss: 0.07603, loss: 0.07603, AccuracyScore: 0.97188, batch_cost: 0.80044s, reader_cost: 0.70231, ips: 19.98909 images/sec
+[2022/04/10 10:17:13] root INFO: [Eval][Epoch 4][Iter: 50/310]MultiLabelLoss: 0.03640, loss: 0.03640, AccuracyScore: 0.97812, batch_cost: 0.09857s, reader_cost: 0.00029, ips: 162.32200 images/sec
+[2022/04/10 10:17:18] root INFO: [Eval][Epoch 4][Iter: 100/310]MultiLabelLoss: 0.01445, loss: 0.01445, AccuracyScore: 0.99063, batch_cost: 0.09879s, reader_cost: 0.00041, ips: 161.95684 images/sec
+[2022/04/10 10:17:23] root INFO: [Eval][Epoch 4][Iter: 150/310]MultiLabelLoss: 0.02164, loss: 0.02164, AccuracyScore: 0.99375, batch_cost: 0.09945s, reader_cost: 0.00055, ips: 160.88648 images/sec
+[2022/04/10 10:17:28] root INFO: [Eval][Epoch 4][Iter: 200/310]MultiLabelLoss: 0.06330, loss: 0.06330, AccuracyScore: 0.97812, batch_cost: 0.10006s, reader_cost: 0.00061, ips: 159.90504 images/sec
+[2022/04/10 10:17:33] root INFO: [Eval][Epoch 4][Iter: 250/310]MultiLabelLoss: 0.03159, loss: 0.03159, AccuracyScore: 0.98750, batch_cost: 0.10040s, reader_cost: 0.00059, ips: 159.35976 images/sec
+[2022/04/10 10:17:38] root INFO: [Eval][Epoch 4][Iter: 300/310]MultiLabelLoss: 0.07966, loss: 0.07966, AccuracyScore: 0.96562, batch_cost: 0.10036s, reader_cost: 0.00068, ips: 159.43094 images/sec
+[2022/04/10 10:17:39] root INFO: [Eval][Epoch 4][Avg]MultiLabelLoss: 0.03852, loss: 0.03852, AccuracyScore: 0.98311, mAP: 0.93655
+[2022/04/10 10:17:39] root INFO: [Eval][Epoch 4][best metric: 0.9837540408328584]
+[2022/04/10 10:17:41] root INFO: Already save model in ./output/ResNet_CSRA/epoch_4
+[2022/04/10 10:17:42] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:17:43] root INFO: [Train][Epoch 5/30][Iter: 0/314]lr: 0.01000, AccuracyScore: 0.98438, MultiLabelLoss: 0.04058, loss: 0.04058, batch_cost: 0.32910s, reader_cost: 0.00386, ips: 48.61785 images/sec, eta: 0:44:46
+[2022/04/10 10:17:59] root INFO: [Train][Epoch 5/30][Iter: 50/314]lr: 0.01000, AccuracyScore: 0.98756, MultiLabelLoss: 0.03830, loss: 0.03830, batch_cost: 0.32960s, reader_cost: 0.00379, ips: 48.54422 images/sec, eta: 0:44:34
+[2022/04/10 10:18:16] root INFO: [Train][Epoch 5/30][Iter: 100/314]lr: 0.01000, AccuracyScore: 0.98762, MultiLabelLoss: 0.03735, loss: 0.03735, batch_cost: 0.32914s, reader_cost: 0.00347, ips: 48.61099 images/sec, eta: 0:44:14
+[2022/04/10 10:18:32] root INFO: [Train][Epoch 5/30][Iter: 150/314]lr: 0.01000, AccuracyScore: 0.98767, MultiLabelLoss: 0.03717, loss: 0.03717, batch_cost: 0.32962s, reader_cost: 0.00348, ips: 48.54053 images/sec, eta: 0:44:01
+[2022/04/10 10:18:49] root INFO: [Train][Epoch 5/30][Iter: 200/314]lr: 0.01000, AccuracyScore: 0.98806, MultiLabelLoss: 0.03661, loss: 0.03661, batch_cost: 0.33074s, reader_cost: 0.00355, ips: 48.37657 images/sec, eta: 0:43:54
+[2022/04/10 10:19:06] root INFO: [Train][Epoch 5/30][Iter: 250/314]lr: 0.01000, AccuracyScore: 0.98765, MultiLabelLoss: 0.03747, loss: 0.03747, batch_cost: 0.33091s, reader_cost: 0.00342, ips: 48.35121 images/sec, eta: 0:43:38
+[2022/04/10 10:19:22] root INFO: [Train][Epoch 5/30][Iter: 300/314]lr: 0.01000, AccuracyScore: 0.98760, MultiLabelLoss: 0.03779, loss: 0.03779, batch_cost: 0.33028s, reader_cost: 0.00312, ips: 48.44398 images/sec, eta: 0:43:17
+[2022/04/10 10:19:26] root INFO: [Train][Epoch 5/30][Avg]AccuracyScore: 0.98765, MultiLabelLoss: 0.03770, loss: 0.03770
+[2022/04/10 10:19:27] root INFO: [Eval][Epoch 5][Iter: 0/310]MultiLabelLoss: 0.08974, loss: 0.08974, AccuracyScore: 0.97500, batch_cost: 0.79043s, reader_cost: 0.69305, ips: 20.24218 images/sec
+[2022/04/10 10:19:32] root INFO: [Eval][Epoch 5][Iter: 50/310]MultiLabelLoss: 0.03179, loss: 0.03179, AccuracyScore: 0.99375, batch_cost: 0.09869s, reader_cost: 0.00084, ips: 162.12662 images/sec
+[2022/04/10 10:19:37] root INFO: [Eval][Epoch 5][Iter: 100/310]MultiLabelLoss: 0.01429, loss: 0.01429, AccuracyScore: 0.99375, batch_cost: 0.09874s, reader_cost: 0.00088, ips: 162.04041 images/sec
+[2022/04/10 10:19:42] root INFO: [Eval][Epoch 5][Iter: 150/310]MultiLabelLoss: 0.02354, loss: 0.02354, AccuracyScore: 0.99375, batch_cost: 0.09854s, reader_cost: 0.00072, ips: 162.37741 images/sec
+[2022/04/10 10:19:47] root INFO: [Eval][Epoch 5][Iter: 200/310]MultiLabelLoss: 0.04729, loss: 0.04729, AccuracyScore: 0.98750, batch_cost: 0.09905s, reader_cost: 0.00082, ips: 161.53424 images/sec
+[2022/04/10 10:19:52] root INFO: [Eval][Epoch 5][Iter: 250/310]MultiLabelLoss: 0.06380, loss: 0.06380, AccuracyScore: 0.97812, batch_cost: 0.09928s, reader_cost: 0.00077, ips: 161.15614 images/sec
+[2022/04/10 10:19:57] root INFO: [Eval][Epoch 5][Iter: 300/310]MultiLabelLoss: 0.06241, loss: 0.06241, AccuracyScore: 0.97500, batch_cost: 0.09969s, reader_cost: 0.00083, ips: 160.49339 images/sec
+[2022/04/10 10:19:58] root INFO: [Eval][Epoch 5][Avg]MultiLabelLoss: 0.03737, loss: 0.03737, AccuracyScore: 0.98486, mAP: 0.93541
+[2022/04/10 10:19:59] root INFO: Already save model in ./output/ResNet_CSRA/best_model
+[2022/04/10 10:19:59] root INFO: [Eval][Epoch 5][best metric: 0.9848647012656648]
+[2022/04/10 10:20:01] root INFO: Already save model in ./output/ResNet_CSRA/epoch_5
+[2022/04/10 10:20:02] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:20:03] root INFO: [Train][Epoch 6/30][Iter: 0/314]lr: 0.01000, AccuracyScore: 0.99687, MultiLabelLoss: 0.01323, loss: 0.01323, batch_cost: 0.33144s, reader_cost: 0.00496, ips: 48.27480 images/sec, eta: 0:43:21
+[2022/04/10 10:20:20] root INFO: [Train][Epoch 6/30][Iter: 50/314]lr: 0.01000, AccuracyScore: 0.98873, MultiLabelLoss: 0.03432, loss: 0.03432, batch_cost: 0.33030s, reader_cost: 0.00329, ips: 48.44012 images/sec, eta: 0:42:56
+[2022/04/10 10:20:36] root INFO: [Train][Epoch 6/30][Iter: 100/314]lr: 0.01000, AccuracyScore: 0.98917, MultiLabelLoss: 0.03372, loss: 0.03372, batch_cost: 0.32872s, reader_cost: 0.00243, ips: 48.67317 images/sec, eta: 0:42:27
+[2022/04/10 10:20:53] root INFO: [Train][Epoch 6/30][Iter: 150/314]lr: 0.01000, AccuracyScore: 0.98974, MultiLabelLoss: 0.03314, loss: 0.03314, batch_cost: 0.32813s, reader_cost: 0.00205, ips: 48.76125 images/sec, eta: 0:42:06
+[2022/04/10 10:21:09] root INFO: [Train][Epoch 6/30][Iter: 200/314]lr: 0.01000, AccuracyScore: 0.98972, MultiLabelLoss: 0.03281, loss: 0.03281, batch_cost: 0.32869s, reader_cost: 0.00181, ips: 48.67832 images/sec, eta: 0:41:54
+[2022/04/10 10:21:25] root INFO: [Train][Epoch 6/30][Iter: 250/314]lr: 0.01000, AccuracyScore: 0.98950, MultiLabelLoss: 0.03292, loss: 0.03292, batch_cost: 0.32848s, reader_cost: 0.00168, ips: 48.70980 images/sec, eta: 0:41:36
+[2022/04/10 10:21:42] root INFO: [Train][Epoch 6/30][Iter: 300/314]lr: 0.01000, AccuracyScore: 0.98967, MultiLabelLoss: 0.03278, loss: 0.03278, batch_cost: 0.32795s, reader_cost: 0.00158, ips: 48.78834 images/sec, eta: 0:41:16
+[2022/04/10 10:21:46] root INFO: [Train][Epoch 6/30][Avg]AccuracyScore: 0.98965, MultiLabelLoss: 0.03271, loss: 0.03271
+[2022/04/10 10:21:47] root INFO: [Eval][Epoch 6][Iter: 0/310]MultiLabelLoss: 0.09185, loss: 0.09185, AccuracyScore: 0.96250, batch_cost: 0.78171s, reader_cost: 0.68244, ips: 20.46799 images/sec
+[2022/04/10 10:21:51] root INFO: [Eval][Epoch 6][Iter: 50/310]MultiLabelLoss: 0.02277, loss: 0.02277, AccuracyScore: 0.99063, batch_cost: 0.09711s, reader_cost: 0.00039, ips: 164.76731 images/sec
+[2022/04/10 10:21:56] root INFO: [Eval][Epoch 6][Iter: 100/310]MultiLabelLoss: 0.02914, loss: 0.02914, AccuracyScore: 0.99375, batch_cost: 0.09719s, reader_cost: 0.00025, ips: 164.62546 images/sec
+[2022/04/10 10:22:01] root INFO: [Eval][Epoch 6][Iter: 150/310]MultiLabelLoss: 0.02403, loss: 0.02403, AccuracyScore: 0.99687, batch_cost: 0.09749s, reader_cost: 0.00031, ips: 164.12149 images/sec
+[2022/04/10 10:22:06] root INFO: [Eval][Epoch 6][Iter: 200/310]MultiLabelLoss: 0.04012, loss: 0.04012, AccuracyScore: 0.98438, batch_cost: 0.09788s, reader_cost: 0.00047, ips: 163.46928 images/sec
+[2022/04/10 10:22:11] root INFO: [Eval][Epoch 6][Iter: 250/310]MultiLabelLoss: 0.08953, loss: 0.08953, AccuracyScore: 0.98125, batch_cost: 0.09820s, reader_cost: 0.00057, ips: 162.93738 images/sec
+[2022/04/10 10:22:16] root INFO: [Eval][Epoch 6][Iter: 300/310]MultiLabelLoss: 0.04255, loss: 0.04255, AccuracyScore: 0.98125, batch_cost: 0.09840s, reader_cost: 0.00065, ips: 162.59796 images/sec
+[2022/04/10 10:22:17] root INFO: [Eval][Epoch 6][Avg]MultiLabelLoss: 0.03945, loss: 0.03945, AccuracyScore: 0.98457, mAP: 0.93714
+[2022/04/10 10:22:17] root INFO: [Eval][Epoch 6][best metric: 0.9848647012656648]
+[2022/04/10 10:22:19] root INFO: Already save model in ./output/ResNet_CSRA/epoch_6
+[2022/04/10 10:22:20] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:22:21] root INFO: [Train][Epoch 7/30][Iter: 0/314]lr: 0.00100, AccuracyScore: 0.98750, MultiLabelLoss: 0.03198, loss: 0.03198, batch_cost: 0.32915s, reader_cost: 0.00352, ips: 48.61000 images/sec, eta: 0:41:20
+[2022/04/10 10:22:37] root INFO: [Train][Epoch 7/30][Iter: 50/314]lr: 0.00100, AccuracyScore: 0.99130, MultiLabelLoss: 0.02865, loss: 0.02865, batch_cost: 0.32908s, reader_cost: 0.00295, ips: 48.62102 images/sec, eta: 0:41:03
+[2022/04/10 10:22:54] root INFO: [Train][Epoch 7/30][Iter: 100/314]lr: 0.00100, AccuracyScore: 0.99149, MultiLabelLoss: 0.02837, loss: 0.02837, batch_cost: 0.32787s, reader_cost: 0.00287, ips: 48.80030 images/sec, eta: 0:40:38
+[2022/04/10 10:23:10] root INFO: [Train][Epoch 7/30][Iter: 150/314]lr: 0.00100, AccuracyScore: 0.99197, MultiLabelLoss: 0.02699, loss: 0.02699, batch_cost: 0.32836s, reader_cost: 0.00305, ips: 48.72681 images/sec, eta: 0:40:25
+[2022/04/10 10:23:26] root INFO: [Train][Epoch 7/30][Iter: 200/314]lr: 0.00100, AccuracyScore: 0.99207, MultiLabelLoss: 0.02650, loss: 0.02650, batch_cost: 0.32832s, reader_cost: 0.00274, ips: 48.73243 images/sec, eta: 0:40:08
+[2022/04/10 10:23:43] root INFO: [Train][Epoch 7/30][Iter: 250/314]lr: 0.00100, AccuracyScore: 0.99226, MultiLabelLoss: 0.02553, loss: 0.02553, batch_cost: 0.32849s, reader_cost: 0.00284, ips: 48.70825 images/sec, eta: 0:39:53
+[2022/04/10 10:23:59] root INFO: [Train][Epoch 7/30][Iter: 300/314]lr: 0.00100, AccuracyScore: 0.99218, MultiLabelLoss: 0.02551, loss: 0.02551, batch_cost: 0.32815s, reader_cost: 0.00274, ips: 48.75802 images/sec, eta: 0:39:34
+[2022/04/10 10:24:03] root INFO: [Train][Epoch 7/30][Avg]AccuracyScore: 0.99225, MultiLabelLoss: 0.02535, loss: 0.02535
+[2022/04/10 10:24:04] root INFO: [Eval][Epoch 7][Iter: 0/310]MultiLabelLoss: 0.07719, loss: 0.07719, AccuracyScore: 0.97188, batch_cost: 0.77536s, reader_cost: 0.67374, ips: 20.63567 images/sec
+[2022/04/10 10:24:09] root INFO: [Eval][Epoch 7][Iter: 50/310]MultiLabelLoss: 0.02086, loss: 0.02086, AccuracyScore: 0.99063, batch_cost: 0.09830s, reader_cost: 0.00086, ips: 162.77181 images/sec
+[2022/04/10 10:24:14] root INFO: [Eval][Epoch 7][Iter: 100/310]MultiLabelLoss: 0.01220, loss: 0.01220, AccuracyScore: 0.99687, batch_cost: 0.09834s, reader_cost: 0.00097, ips: 162.70494 images/sec
+[2022/04/10 10:24:19] root INFO: [Eval][Epoch 7][Iter: 150/310]MultiLabelLoss: 0.01742, loss: 0.01742, AccuracyScore: 0.99687, batch_cost: 0.09889s, reader_cost: 0.00116, ips: 161.80139 images/sec
+[2022/04/10 10:24:24] root INFO: [Eval][Epoch 7][Iter: 200/310]MultiLabelLoss: 0.03951, loss: 0.03951, AccuracyScore: 0.98438, batch_cost: 0.09882s, reader_cost: 0.00105, ips: 161.90915 images/sec
+[2022/04/10 10:24:29] root INFO: [Eval][Epoch 7][Iter: 250/310]MultiLabelLoss: 0.04447, loss: 0.04447, AccuracyScore: 0.99063, batch_cost: 0.09890s, reader_cost: 0.00114, ips: 161.77946 images/sec
+[2022/04/10 10:24:34] root INFO: [Eval][Epoch 7][Iter: 300/310]MultiLabelLoss: 0.04195, loss: 0.04195, AccuracyScore: 0.97500, batch_cost: 0.09871s, reader_cost: 0.00107, ips: 162.09799 images/sec
+[2022/04/10 10:24:35] root INFO: [Eval][Epoch 7][Avg]MultiLabelLoss: 0.03110, loss: 0.03110, AccuracyScore: 0.98661, mAP: 0.94359
+[2022/04/10 10:24:36] root INFO: Already save model in ./output/ResNet_CSRA/best_model
+[2022/04/10 10:24:36] root INFO: [Eval][Epoch 7][best metric: 0.9866114707486118]
+[2022/04/10 10:24:38] root INFO: Already save model in ./output/ResNet_CSRA/epoch_7
+[2022/04/10 10:24:39] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:24:40] root INFO: [Train][Epoch 8/30][Iter: 0/314]lr: 0.00100, AccuracyScore: 0.99375, MultiLabelLoss: 0.02473, loss: 0.02473, batch_cost: 0.32963s, reader_cost: 0.00473, ips: 48.53971 images/sec, eta: 0:39:40
+[2022/04/10 10:24:56] root INFO: [Train][Epoch 8/30][Iter: 50/314]lr: 0.00100, AccuracyScore: 0.99259, MultiLabelLoss: 0.02303, loss: 0.02303, batch_cost: 0.32925s, reader_cost: 0.00370, ips: 48.59563 images/sec, eta: 0:39:21
+[2022/04/10 10:25:13] root INFO: [Train][Epoch 8/30][Iter: 100/314]lr: 0.00100, AccuracyScore: 0.99332, MultiLabelLoss: 0.02218, loss: 0.02218, batch_cost: 0.32886s, reader_cost: 0.00347, ips: 48.65353 images/sec, eta: 0:39:02
+[2022/04/10 10:25:29] root INFO: [Train][Epoch 8/30][Iter: 150/314]lr: 0.00100, AccuracyScore: 0.99305, MultiLabelLoss: 0.02246, loss: 0.02246, batch_cost: 0.32823s, reader_cost: 0.00313, ips: 48.74619 images/sec, eta: 0:38:41
+[2022/04/10 10:25:46] root INFO: [Train][Epoch 8/30][Iter: 200/314]lr: 0.00100, AccuracyScore: 0.99303, MultiLabelLoss: 0.02261, loss: 0.02261, batch_cost: 0.32859s, reader_cost: 0.00335, ips: 48.69263 images/sec, eta: 0:38:27
+[2022/04/10 10:26:02] root INFO: [Train][Epoch 8/30][Iter: 250/314]lr: 0.00100, AccuracyScore: 0.99274, MultiLabelLoss: 0.02333, loss: 0.02333, batch_cost: 0.32888s, reader_cost: 0.00349, ips: 48.64968 images/sec, eta: 0:38:12
+[2022/04/10 10:26:19] root INFO: [Train][Epoch 8/30][Iter: 300/314]lr: 0.00100, AccuracyScore: 0.99291, MultiLabelLoss: 0.02302, loss: 0.02302, batch_cost: 0.32918s, reader_cost: 0.00348, ips: 48.60501 images/sec, eta: 0:37:58
+[2022/04/10 10:26:23] root INFO: [Train][Epoch 8/30][Avg]AccuracyScore: 0.99285, MultiLabelLoss: 0.02316, loss: 0.02316
+[2022/04/10 10:26:24] root INFO: [Eval][Epoch 8][Iter: 0/310]MultiLabelLoss: 0.07830, loss: 0.07830, AccuracyScore: 0.96875, batch_cost: 0.77377s, reader_cost: 0.67637, ips: 20.67798 images/sec
+[2022/04/10 10:26:29] root INFO: [Eval][Epoch 8][Iter: 50/310]MultiLabelLoss: 0.03129, loss: 0.03129, AccuracyScore: 0.99063, batch_cost: 0.09829s, reader_cost: 0.00071, ips: 162.78857 images/sec
+[2022/04/10 10:26:34] root INFO: [Eval][Epoch 8][Iter: 100/310]MultiLabelLoss: 0.00587, loss: 0.00587, AccuracyScore: 0.99687, batch_cost: 0.09899s, reader_cost: 0.00117, ips: 161.63869 images/sec
+[2022/04/10 10:26:38] root INFO: [Eval][Epoch 8][Iter: 150/310]MultiLabelLoss: 0.01822, loss: 0.01822, AccuracyScore: 0.99687, batch_cost: 0.09862s, reader_cost: 0.00090, ips: 162.24462 images/sec
+[2022/04/10 10:26:43] root INFO: [Eval][Epoch 8][Iter: 200/310]MultiLabelLoss: 0.05060, loss: 0.05060, AccuracyScore: 0.97812, batch_cost: 0.09894s, reader_cost: 0.00104, ips: 161.72216 images/sec
+[2022/04/10 10:26:48] root INFO: [Eval][Epoch 8][Iter: 250/310]MultiLabelLoss: 0.05579, loss: 0.05579, AccuracyScore: 0.99063, batch_cost: 0.09915s, reader_cost: 0.00109, ips: 161.37775 images/sec
+[2022/04/10 10:26:53] root INFO: [Eval][Epoch 8][Iter: 300/310]MultiLabelLoss: 0.04087, loss: 0.04087, AccuracyScore: 0.97812, batch_cost: 0.09905s, reader_cost: 0.00102, ips: 161.54141 images/sec
+[2022/04/10 10:26:54] root INFO: [Eval][Epoch 8][Avg]MultiLabelLoss: 0.03156, loss: 0.03156, AccuracyScore: 0.98665, mAP: 0.94430
+[2022/04/10 10:26:56] root INFO: Already save model in ./output/ResNet_CSRA/best_model
+[2022/04/10 10:26:56] root INFO: [Eval][Epoch 8][best metric: 0.9866518590099784]
+[2022/04/10 10:26:57] root INFO: Already save model in ./output/ResNet_CSRA/epoch_8
+[2022/04/10 10:26:58] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:26:59] root INFO: [Train][Epoch 9/30][Iter: 0/314]lr: 0.00100, AccuracyScore: 0.99063, MultiLabelLoss: 0.03331, loss: 0.03331, batch_cost: 0.33057s, reader_cost: 0.00548, ips: 48.40157 images/sec, eta: 0:38:03
+[2022/04/10 10:27:16] root INFO: [Train][Epoch 9/30][Iter: 50/314]lr: 0.00100, AccuracyScore: 0.99381, MultiLabelLoss: 0.02169, loss: 0.02169, batch_cost: 0.33005s, reader_cost: 0.00309, ips: 48.47795 images/sec, eta: 0:37:43
+[2022/04/10 10:27:32] root INFO: [Train][Epoch 9/30][Iter: 100/314]lr: 0.00100, AccuracyScore: 0.99431, MultiLabelLoss: 0.02068, loss: 0.02068, batch_cost: 0.33143s, reader_cost: 0.00346, ips: 48.27620 images/sec, eta: 0:37:36
+[2022/04/10 10:27:49] root INFO: [Train][Epoch 9/30][Iter: 150/314]lr: 0.00100, AccuracyScore: 0.99429, MultiLabelLoss: 0.02076, loss: 0.02076, batch_cost: 0.33136s, reader_cost: 0.00374, ips: 48.28560 images/sec, eta: 0:37:19
+[2022/04/10 10:28:05] root INFO: [Train][Epoch 9/30][Iter: 200/314]lr: 0.00100, AccuracyScore: 0.99434, MultiLabelLoss: 0.02088, loss: 0.02088, batch_cost: 0.33117s, reader_cost: 0.00373, ips: 48.31416 images/sec, eta: 0:37:01
+[2022/04/10 10:28:22] root INFO: [Train][Epoch 9/30][Iter: 250/314]lr: 0.00100, AccuracyScore: 0.99399, MultiLabelLoss: 0.02190, loss: 0.02190, batch_cost: 0.33095s, reader_cost: 0.00374, ips: 48.34565 images/sec, eta: 0:36:43
+[2022/04/10 10:28:38] root INFO: [Train][Epoch 9/30][Iter: 300/314]lr: 0.00100, AccuracyScore: 0.99390, MultiLabelLoss: 0.02210, loss: 0.02210, batch_cost: 0.33087s, reader_cost: 0.00356, ips: 48.35680 images/sec, eta: 0:36:26
+[2022/04/10 10:28:43] root INFO: [Train][Epoch 9/30][Avg]AccuracyScore: 0.99382, MultiLabelLoss: 0.02230, loss: 0.02230
+[2022/04/10 10:28:43] root INFO: [Eval][Epoch 9][Iter: 0/310]MultiLabelLoss: 0.08716, loss: 0.08716, AccuracyScore: 0.96562, batch_cost: 0.77333s, reader_cost: 0.66998, ips: 20.68975 images/sec
+[2022/04/10 10:28:48] root INFO: [Eval][Epoch 9][Iter: 50/310]MultiLabelLoss: 0.02627, loss: 0.02627, AccuracyScore: 0.99063, batch_cost: 0.09898s, reader_cost: 0.00062, ips: 161.65686 images/sec
+[2022/04/10 10:28:53] root INFO: [Eval][Epoch 9][Iter: 100/310]MultiLabelLoss: 0.00594, loss: 0.00594, AccuracyScore: 0.99687, batch_cost: 0.09865s, reader_cost: 0.00052, ips: 162.18540 images/sec
+[2022/04/10 10:28:58] root INFO: [Eval][Epoch 9][Iter: 150/310]MultiLabelLoss: 0.01677, loss: 0.01677, AccuracyScore: 0.99687, batch_cost: 0.09905s, reader_cost: 0.00059, ips: 161.53854 images/sec
+[2022/04/10 10:29:03] root INFO: [Eval][Epoch 9][Iter: 200/310]MultiLabelLoss: 0.04698, loss: 0.04698, AccuracyScore: 0.98125, batch_cost: 0.09884s, reader_cost: 0.00062, ips: 161.87579 images/sec
+[2022/04/10 10:29:08] root INFO: [Eval][Epoch 9][Iter: 250/310]MultiLabelLoss: 0.04446, loss: 0.04446, AccuracyScore: 0.98750, batch_cost: 0.09891s, reader_cost: 0.00068, ips: 161.76253 images/sec
+[2022/04/10 10:29:13] root INFO: [Eval][Epoch 9][Iter: 300/310]MultiLabelLoss: 0.04149, loss: 0.04149, AccuracyScore: 0.97812, batch_cost: 0.09876s, reader_cost: 0.00067, ips: 162.01495 images/sec
+[2022/04/10 10:29:14] root INFO: [Eval][Epoch 9][Avg]MultiLabelLoss: 0.02992, loss: 0.02992, AccuracyScore: 0.98697, mAP: 0.94496
+[2022/04/10 10:29:16] root INFO: Already save model in ./output/ResNet_CSRA/best_model
+[2022/04/10 10:29:16] root INFO: [Eval][Epoch 9][best metric: 0.9869749597085697]
+[2022/04/10 10:29:17] root INFO: Already save model in ./output/ResNet_CSRA/epoch_9
+[2022/04/10 10:29:18] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:29:19] root INFO: [Train][Epoch 10/30][Iter: 0/314]lr: 0.00100, AccuracyScore: 0.99687, MultiLabelLoss: 0.01125, loss: 0.01125, batch_cost: 0.33230s, reader_cost: 0.00537, ips: 48.14935 images/sec, eta: 0:36:31
+[2022/04/10 10:29:35] root INFO: [Train][Epoch 10/30][Iter: 50/314]lr: 0.00100, AccuracyScore: 0.99357, MultiLabelLoss: 0.02221, loss: 0.02221, batch_cost: 0.32961s, reader_cost: 0.00342, ips: 48.54277 images/sec, eta: 0:35:56
+[2022/04/10 10:29:52] root INFO: [Train][Epoch 10/30][Iter: 100/314]lr: 0.00100, AccuracyScore: 0.99425, MultiLabelLoss: 0.02052, loss: 0.02052, batch_cost: 0.33025s, reader_cost: 0.00338, ips: 48.44777 images/sec, eta: 0:35:44
+[2022/04/10 10:30:09] root INFO: [Train][Epoch 10/30][Iter: 150/314]lr: 0.00100, AccuracyScore: 0.99412, MultiLabelLoss: 0.02060, loss: 0.02060, batch_cost: 0.33548s, reader_cost: 0.00353, ips: 47.69290 images/sec, eta: 0:36:01
+[2022/04/10 10:30:26] root INFO: [Train][Epoch 10/30][Iter: 200/314]lr: 0.00100, AccuracyScore: 0.99398, MultiLabelLoss: 0.02110, loss: 0.02110, batch_cost: 0.33486s, reader_cost: 0.00358, ips: 47.78140 images/sec, eta: 0:35:41
+[2022/04/10 10:30:42] root INFO: [Train][Epoch 10/30][Iter: 250/314]lr: 0.00100, AccuracyScore: 0.99394, MultiLabelLoss: 0.02124, loss: 0.02124, batch_cost: 0.33317s, reader_cost: 0.00336, ips: 48.02388 images/sec, eta: 0:35:13
+[2022/04/10 10:30:58] root INFO: [Train][Epoch 10/30][Iter: 300/314]lr: 0.00100, AccuracyScore: 0.99379, MultiLabelLoss: 0.02158, loss: 0.02158, batch_cost: 0.33199s, reader_cost: 0.00317, ips: 48.19481 images/sec, eta: 0:34:49
+[2022/04/10 10:31:03] root INFO: [Train][Epoch 10/30][Avg]AccuracyScore: 0.99383, MultiLabelLoss: 0.02146, loss: 0.02146
+[2022/04/10 10:31:03] root INFO: [Eval][Epoch 10][Iter: 0/310]MultiLabelLoss: 0.09458, loss: 0.09458, AccuracyScore: 0.96562, batch_cost: 0.75962s, reader_cost: 0.66199, ips: 21.06316 images/sec
+[2022/04/10 10:31:08] root INFO: [Eval][Epoch 10][Iter: 50/310]MultiLabelLoss: 0.02884, loss: 0.02884, AccuracyScore: 0.99375, batch_cost: 0.09797s, reader_cost: 0.00063, ips: 163.32199 images/sec
+[2022/04/10 10:31:13] root INFO: [Eval][Epoch 10][Iter: 100/310]MultiLabelLoss: 0.00854, loss: 0.00854, AccuracyScore: 0.99687, batch_cost: 0.09825s, reader_cost: 0.00088, ips: 162.84750 images/sec
+[2022/04/10 10:31:18] root INFO: [Eval][Epoch 10][Iter: 150/310]MultiLabelLoss: 0.01873, loss: 0.01873, AccuracyScore: 0.99687, batch_cost: 0.09825s, reader_cost: 0.00077, ips: 162.85647 images/sec
+[2022/04/10 10:31:23] root INFO: [Eval][Epoch 10][Iter: 200/310]MultiLabelLoss: 0.04927, loss: 0.04927, AccuracyScore: 0.98125, batch_cost: 0.09862s, reader_cost: 0.00093, ips: 162.23815 images/sec
+[2022/04/10 10:31:28] root INFO: [Eval][Epoch 10][Iter: 250/310]MultiLabelLoss: 0.04509, loss: 0.04509, AccuracyScore: 0.98438, batch_cost: 0.09876s, reader_cost: 0.00089, ips: 162.00762 images/sec
+[2022/04/10 10:31:33] root INFO: [Eval][Epoch 10][Iter: 300/310]MultiLabelLoss: 0.03891, loss: 0.03891, AccuracyScore: 0.97500, batch_cost: 0.09896s, reader_cost: 0.00093, ips: 161.68669 images/sec
+[2022/04/10 10:31:34] root INFO: [Eval][Epoch 10][Avg]MultiLabelLoss: 0.02994, loss: 0.02994, AccuracyScore: 0.98683, mAP: 0.94545
+[2022/04/10 10:31:34] root INFO: [Eval][Epoch 10][best metric: 0.9869749597085697]
+[2022/04/10 10:31:35] root INFO: Already save model in ./output/ResNet_CSRA/epoch_10
+[2022/04/10 10:31:36] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:31:37] root INFO: [Train][Epoch 11/30][Iter: 0/314]lr: 0.00010, AccuracyScore: 0.99687, MultiLabelLoss: 0.01307, loss: 0.01307, batch_cost: 0.33322s, reader_cost: 0.00518, ips: 48.01633 images/sec, eta: 0:34:52
+[2022/04/10 10:31:54] root INFO: [Train][Epoch 11/30][Iter: 50/314]lr: 0.00010, AccuracyScore: 0.99442, MultiLabelLoss: 0.02076, loss: 0.02076, batch_cost: 0.32839s, reader_cost: 0.00209, ips: 48.72191 images/sec, eta: 0:34:05
+[2022/04/10 10:32:10] root INFO: [Train][Epoch 11/30][Iter: 100/314]lr: 0.00010, AccuracyScore: 0.99387, MultiLabelLoss: 0.02214, loss: 0.02214, batch_cost: 0.32784s, reader_cost: 0.00273, ips: 48.80490 images/sec, eta: 0:33:46
+[2022/04/10 10:32:26] root INFO: [Train][Epoch 11/30][Iter: 150/314]lr: 0.00010, AccuracyScore: 0.99371, MultiLabelLoss: 0.02241, loss: 0.02241, batch_cost: 0.32655s, reader_cost: 0.00226, ips: 48.99651 images/sec, eta: 0:33:21
+[2022/04/10 10:32:43] root INFO: [Train][Epoch 11/30][Iter: 200/314]lr: 0.00010, AccuracyScore: 0.99361, MultiLabelLoss: 0.02233, loss: 0.02233, batch_cost: 0.32693s, reader_cost: 0.00252, ips: 48.93974 images/sec, eta: 0:33:07
+[2022/04/10 10:32:59] root INFO: [Train][Epoch 11/30][Iter: 250/314]lr: 0.00010, AccuracyScore: 0.99380, MultiLabelLoss: 0.02170, loss: 0.02170, batch_cost: 0.32708s, reader_cost: 0.00244, ips: 48.91717 images/sec, eta: 0:32:52
+[2022/04/10 10:33:16] root INFO: [Train][Epoch 11/30][Iter: 300/314]lr: 0.00010, AccuracyScore: 0.99373, MultiLabelLoss: 0.02172, loss: 0.02172, batch_cost: 0.32696s, reader_cost: 0.00258, ips: 48.93540 images/sec, eta: 0:32:35
+[2022/04/10 10:33:20] root INFO: [Train][Epoch 11/30][Avg]AccuracyScore: 0.99374, MultiLabelLoss: 0.02173, loss: 0.02173
+[2022/04/10 10:33:20] root INFO: [Eval][Epoch 11][Iter: 0/310]MultiLabelLoss: 0.08608, loss: 0.08608, AccuracyScore: 0.96875, batch_cost: 0.79088s, reader_cost: 0.69428, ips: 20.23052 images/sec
+[2022/04/10 10:33:25] root INFO: [Eval][Epoch 11][Iter: 50/310]MultiLabelLoss: 0.03893, loss: 0.03893, AccuracyScore: 0.99063, batch_cost: 0.09734s, reader_cost: 0.00072, ips: 164.37172 images/sec
+[2022/04/10 10:33:30] root INFO: [Eval][Epoch 11][Iter: 100/310]MultiLabelLoss: 0.00683, loss: 0.00683, AccuracyScore: 0.99687, batch_cost: 0.09770s, reader_cost: 0.00092, ips: 163.76544 images/sec
+[2022/04/10 10:33:35] root INFO: [Eval][Epoch 11][Iter: 150/310]MultiLabelLoss: 0.01954, loss: 0.01954, AccuracyScore: 0.99687, batch_cost: 0.09769s, reader_cost: 0.00089, ips: 163.78083 images/sec
+[2022/04/10 10:33:40] root INFO: [Eval][Epoch 11][Iter: 200/310]MultiLabelLoss: 0.05403, loss: 0.05403, AccuracyScore: 0.97812, batch_cost: 0.09761s, reader_cost: 0.00081, ips: 163.91081 images/sec
+[2022/04/10 10:33:45] root INFO: [Eval][Epoch 11][Iter: 250/310]MultiLabelLoss: 0.04759, loss: 0.04759, AccuracyScore: 0.98750, batch_cost: 0.09772s, reader_cost: 0.00080, ips: 163.74142 images/sec
+[2022/04/10 10:33:50] root INFO: [Eval][Epoch 11][Iter: 300/310]MultiLabelLoss: 0.03493, loss: 0.03493, AccuracyScore: 0.98125, batch_cost: 0.09783s, reader_cost: 0.00085, ips: 163.54087 images/sec
+[2022/04/10 10:33:51] root INFO: [Eval][Epoch 11][Avg]MultiLabelLoss: 0.03184, loss: 0.03184, AccuracyScore: 0.98675, mAP: 0.94467
+[2022/04/10 10:33:51] root INFO: [Eval][Epoch 11][best metric: 0.9869749597085697]
+[2022/04/10 10:33:52] root INFO: Already save model in ./output/ResNet_CSRA/epoch_11
+[2022/04/10 10:33:53] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:33:54] root INFO: [Train][Epoch 12/30][Iter: 0/314]lr: 0.00010, AccuracyScore: 0.99063, MultiLabelLoss: 0.02570, loss: 0.02570, batch_cost: 0.32826s, reader_cost: 0.00456, ips: 48.74141 images/sec, eta: 0:32:38
+[2022/04/10 10:34:11] root INFO: [Train][Epoch 12/30][Iter: 50/314]lr: 0.00010, AccuracyScore: 0.99375, MultiLabelLoss: 0.02136, loss: 0.02136, batch_cost: 0.32873s, reader_cost: 0.00331, ips: 48.67258 images/sec, eta: 0:32:24
+[2022/04/10 10:34:27] root INFO: [Train][Epoch 12/30][Iter: 100/314]lr: 0.00010, AccuracyScore: 0.99409, MultiLabelLoss: 0.02002, loss: 0.02002, batch_cost: 0.32877s, reader_cost: 0.00305, ips: 48.66673 images/sec, eta: 0:32:08
+[2022/04/10 10:34:44] root INFO: [Train][Epoch 12/30][Iter: 150/314]lr: 0.00010, AccuracyScore: 0.99408, MultiLabelLoss: 0.01996, loss: 0.01996, batch_cost: 0.32863s, reader_cost: 0.00319, ips: 48.68750 images/sec, eta: 0:31:51
+[2022/04/10 10:35:00] root INFO: [Train][Epoch 12/30][Iter: 200/314]lr: 0.00010, AccuracyScore: 0.99384, MultiLabelLoss: 0.02061, loss: 0.02061, batch_cost: 0.32827s, reader_cost: 0.00307, ips: 48.74091 images/sec, eta: 0:31:32
+[2022/04/10 10:35:16] root INFO: [Train][Epoch 12/30][Iter: 250/314]lr: 0.00010, AccuracyScore: 0.99406, MultiLabelLoss: 0.02011, loss: 0.02011, batch_cost: 0.32844s, reader_cost: 0.00321, ips: 48.71570 images/sec, eta: 0:31:17
+[2022/04/10 10:35:33] root INFO: [Train][Epoch 12/30][Iter: 300/314]lr: 0.00010, AccuracyScore: 0.99420, MultiLabelLoss: 0.01963, loss: 0.01963, batch_cost: 0.32859s, reader_cost: 0.00328, ips: 48.69344 images/sec, eta: 0:31:01
+[2022/04/10 10:35:37] root INFO: [Train][Epoch 12/30][Avg]AccuracyScore: 0.99417, MultiLabelLoss: 0.01979, loss: 0.01979
+[2022/04/10 10:35:38] root INFO: [Eval][Epoch 12][Iter: 0/310]MultiLabelLoss: 0.08303, loss: 0.08303, AccuracyScore: 0.97188, batch_cost: 0.74322s, reader_cost: 0.64653, ips: 21.52783 images/sec
+[2022/04/10 10:35:43] root INFO: [Eval][Epoch 12][Iter: 50/310]MultiLabelLoss: 0.02685, loss: 0.02685, AccuracyScore: 0.99063, batch_cost: 0.09708s, reader_cost: 0.00011, ips: 164.80495 images/sec
+[2022/04/10 10:35:47] root INFO: [Eval][Epoch 12][Iter: 100/310]MultiLabelLoss: 0.00469, loss: 0.00469, AccuracyScore: 0.99687, batch_cost: 0.09800s, reader_cost: 0.00067, ips: 163.26027 images/sec
+[2022/04/10 10:35:52] root INFO: [Eval][Epoch 12][Iter: 150/310]MultiLabelLoss: 0.01862, loss: 0.01862, AccuracyScore: 0.99687, batch_cost: 0.09831s, reader_cost: 0.00088, ips: 162.75769 images/sec
+[2022/04/10 10:35:57] root INFO: [Eval][Epoch 12][Iter: 200/310]MultiLabelLoss: 0.05359, loss: 0.05359, AccuracyScore: 0.98125, batch_cost: 0.09824s, reader_cost: 0.00089, ips: 162.87407 images/sec
+[2022/04/10 10:36:02] root INFO: [Eval][Epoch 12][Iter: 250/310]MultiLabelLoss: 0.04843, loss: 0.04843, AccuracyScore: 0.98125, batch_cost: 0.09833s, reader_cost: 0.00094, ips: 162.71396 images/sec
+[2022/04/10 10:36:07] root INFO: [Eval][Epoch 12][Iter: 300/310]MultiLabelLoss: 0.04075, loss: 0.04075, AccuracyScore: 0.97812, batch_cost: 0.09818s, reader_cost: 0.00088, ips: 162.96346 images/sec
+[2022/04/10 10:36:08] root INFO: [Eval][Epoch 12][Avg]MultiLabelLoss: 0.02901, loss: 0.02901, AccuracyScore: 0.98677, mAP: 0.94525
+[2022/04/10 10:36:08] root INFO: [Eval][Epoch 12][best metric: 0.9869749597085697]
+[2022/04/10 10:36:09] root INFO: Already save model in ./output/ResNet_CSRA/epoch_12
+[2022/04/10 10:36:11] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:36:11] root INFO: [Train][Epoch 13/30][Iter: 0/314]lr: 0.00010, AccuracyScore: 1.00000, MultiLabelLoss: 0.00711, loss: 0.00711, batch_cost: 0.32984s, reader_cost: 0.00514, ips: 48.50821 images/sec, eta: 0:31:04
+[2022/04/10 10:36:28] root INFO: [Train][Epoch 13/30][Iter: 50/314]lr: 0.00010, AccuracyScore: 0.99418, MultiLabelLoss: 0.01962, loss: 0.01962, batch_cost: 0.32936s, reader_cost: 0.00387, ips: 48.57890 images/sec, eta: 0:30:45
+[2022/04/10 10:36:44] root INFO: [Train][Epoch 13/30][Iter: 100/314]lr: 0.00010, AccuracyScore: 0.99449, MultiLabelLoss: 0.01968, loss: 0.01968, batch_cost: 0.32924s, reader_cost: 0.00339, ips: 48.59723 images/sec, eta: 0:30:27
+[2022/04/10 10:37:01] root INFO: [Train][Epoch 13/30][Iter: 150/314]lr: 0.00010, AccuracyScore: 0.99418, MultiLabelLoss: 0.02026, loss: 0.02026, batch_cost: 0.32900s, reader_cost: 0.00333, ips: 48.63209 images/sec, eta: 0:30:10
+[2022/04/10 10:37:17] root INFO: [Train][Epoch 13/30][Iter: 200/314]lr: 0.00010, AccuracyScore: 0.99419, MultiLabelLoss: 0.02063, loss: 0.02063, batch_cost: 0.32867s, reader_cost: 0.00314, ips: 48.68124 images/sec, eta: 0:29:51
+[2022/04/10 10:37:34] root INFO: [Train][Epoch 13/30][Iter: 250/314]lr: 0.00010, AccuracyScore: 0.99425, MultiLabelLoss: 0.02073, loss: 0.02073, batch_cost: 0.32815s, reader_cost: 0.00297, ips: 48.75748 images/sec, eta: 0:29:32
+[2022/04/10 10:37:50] root INFO: [Train][Epoch 13/30][Iter: 300/314]lr: 0.00010, AccuracyScore: 0.99426, MultiLabelLoss: 0.02082, loss: 0.02082, batch_cost: 0.32787s, reader_cost: 0.00281, ips: 48.79922 images/sec, eta: 0:29:14
+[2022/04/10 10:37:54] root INFO: [Train][Epoch 13/30][Avg]AccuracyScore: 0.99439, MultiLabelLoss: 0.02051, loss: 0.02051
+[2022/04/10 10:37:55] root INFO: [Eval][Epoch 13][Iter: 0/310]MultiLabelLoss: 0.08466, loss: 0.08466, AccuracyScore: 0.96875, batch_cost: 0.75298s, reader_cost: 0.65552, ips: 21.24897 images/sec
+[2022/04/10 10:38:00] root INFO: [Eval][Epoch 13][Iter: 50/310]MultiLabelLoss: 0.03808, loss: 0.03808, AccuracyScore: 0.99063, batch_cost: 0.09907s, reader_cost: 0.00011, ips: 161.50207 images/sec
+[2022/04/10 10:38:05] root INFO: [Eval][Epoch 13][Iter: 100/310]MultiLabelLoss: 0.00802, loss: 0.00802, AccuracyScore: 0.99687, batch_cost: 0.10104s, reader_cost: 0.00080, ips: 158.35425 images/sec
+[2022/04/10 10:38:10] root INFO: [Eval][Epoch 13][Iter: 150/310]MultiLabelLoss: 0.01950, loss: 0.01950, AccuracyScore: 0.99687, batch_cost: 0.10136s, reader_cost: 0.00099, ips: 157.84916 images/sec
+[2022/04/10 10:38:15] root INFO: [Eval][Epoch 13][Iter: 200/310]MultiLabelLoss: 0.05254, loss: 0.05254, AccuracyScore: 0.98125, batch_cost: 0.10121s, reader_cost: 0.00110, ips: 158.08832 images/sec
+[2022/04/10 10:38:20] root INFO: [Eval][Epoch 13][Iter: 250/310]MultiLabelLoss: 0.04910, loss: 0.04910, AccuracyScore: 0.99063, batch_cost: 0.10081s, reader_cost: 0.00104, ips: 158.71546 images/sec
+[2022/04/10 10:38:25] root INFO: [Eval][Epoch 13][Iter: 300/310]MultiLabelLoss: 0.03997, loss: 0.03997, AccuracyScore: 0.97812, batch_cost: 0.10051s, reader_cost: 0.00102, ips: 159.18612 images/sec
+[2022/04/10 10:38:26] root INFO: [Eval][Epoch 13][Avg]MultiLabelLoss: 0.03161, loss: 0.03161, AccuracyScore: 0.98674, mAP: 0.94556
+[2022/04/10 10:38:26] root INFO: [Eval][Epoch 13][best metric: 0.9869749597085697]
+[2022/04/10 10:38:27] root INFO: Already save model in ./output/ResNet_CSRA/epoch_13
+[2022/04/10 10:38:28] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:38:29] root INFO: [Train][Epoch 14/30][Iter: 0/314]lr: 0.00010, AccuracyScore: 0.99375, MultiLabelLoss: 0.02086, loss: 0.02086, batch_cost: 0.32905s, reader_cost: 0.00459, ips: 48.62445 images/sec, eta: 0:29:16
+[2022/04/10 10:38:45] root INFO: [Train][Epoch 14/30][Iter: 50/314]lr: 0.00010, AccuracyScore: 0.99406, MultiLabelLoss: 0.02148, loss: 0.02148, batch_cost: 0.32588s, reader_cost: 0.00215, ips: 49.09761 images/sec, eta: 0:28:43
+[2022/04/10 10:39:02] root INFO: [Train][Epoch 14/30][Iter: 100/314]lr: 0.00010, AccuracyScore: 0.99384, MultiLabelLoss: 0.02164, loss: 0.02164, batch_cost: 0.32618s, reader_cost: 0.00250, ips: 49.05256 images/sec, eta: 0:28:28
+[2022/04/10 10:39:18] root INFO: [Train][Epoch 14/30][Iter: 150/314]lr: 0.00010, AccuracyScore: 0.99398, MultiLabelLoss: 0.02101, loss: 0.02101, batch_cost: 0.32619s, reader_cost: 0.00232, ips: 49.05148 images/sec, eta: 0:28:12
+[2022/04/10 10:39:35] root INFO: [Train][Epoch 14/30][Iter: 200/314]lr: 0.00010, AccuracyScore: 0.99401, MultiLabelLoss: 0.02089, loss: 0.02089, batch_cost: 0.32707s, reader_cost: 0.00243, ips: 48.91899 images/sec, eta: 0:28:00
+[2022/04/10 10:39:51] root INFO: [Train][Epoch 14/30][Iter: 250/314]lr: 0.00010, AccuracyScore: 0.99399, MultiLabelLoss: 0.02107, loss: 0.02107, batch_cost: 0.32780s, reader_cost: 0.00250, ips: 48.81063 images/sec, eta: 0:27:47
+[2022/04/10 10:40:07] root INFO: [Train][Epoch 14/30][Iter: 300/314]lr: 0.00010, AccuracyScore: 0.99409, MultiLabelLoss: 0.02086, loss: 0.02086, batch_cost: 0.32731s, reader_cost: 0.00244, ips: 48.88313 images/sec, eta: 0:27:28
+[2022/04/10 10:40:11] root INFO: [Train][Epoch 14/30][Avg]AccuracyScore: 0.99399, MultiLabelLoss: 0.02098, loss: 0.02098
+[2022/04/10 10:40:12] root INFO: [Eval][Epoch 14][Iter: 0/310]MultiLabelLoss: 0.08709, loss: 0.08709, AccuracyScore: 0.96875, batch_cost: 0.75608s, reader_cost: 0.65762, ips: 21.16190 images/sec
+[2022/04/10 10:40:17] root INFO: [Eval][Epoch 14][Iter: 50/310]MultiLabelLoss: 0.03524, loss: 0.03524, AccuracyScore: 0.99063, batch_cost: 0.09828s, reader_cost: 0.00093, ips: 162.79997 images/sec
+[2022/04/10 10:40:22] root INFO: [Eval][Epoch 14][Iter: 100/310]MultiLabelLoss: 0.00233, loss: 0.00233, AccuracyScore: 0.99687, batch_cost: 0.09794s, reader_cost: 0.00079, ips: 163.37179 images/sec
+[2022/04/10 10:40:27] root INFO: [Eval][Epoch 14][Iter: 150/310]MultiLabelLoss: 0.01891, loss: 0.01891, AccuracyScore: 0.99687, batch_cost: 0.09826s, reader_cost: 0.00077, ips: 162.83644 images/sec
+[2022/04/10 10:40:32] root INFO: [Eval][Epoch 14][Iter: 200/310]MultiLabelLoss: 0.04839, loss: 0.04839, AccuracyScore: 0.97812, batch_cost: 0.09868s, reader_cost: 0.00071, ips: 162.14283 images/sec
+[2022/04/10 10:40:37] root INFO: [Eval][Epoch 14][Iter: 250/310]MultiLabelLoss: 0.04614, loss: 0.04614, AccuracyScore: 0.98438, batch_cost: 0.09867s, reader_cost: 0.00072, ips: 162.15174 images/sec
+[2022/04/10 10:40:42] root INFO: [Eval][Epoch 14][Iter: 300/310]MultiLabelLoss: 0.03222, loss: 0.03222, AccuracyScore: 0.98125, batch_cost: 0.09891s, reader_cost: 0.00080, ips: 161.76463 images/sec
+[2022/04/10 10:40:43] root INFO: [Eval][Epoch 14][Avg]MultiLabelLoss: 0.03006, loss: 0.03006, AccuracyScore: 0.98683, mAP: 0.94508
+[2022/04/10 10:40:43] root INFO: [Eval][Epoch 14][best metric: 0.9869749597085697]
+[2022/04/10 10:40:44] root INFO: Already save model in ./output/ResNet_CSRA/epoch_14
+[2022/04/10 10:40:45] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:40:46] root INFO: [Train][Epoch 15/30][Iter: 0/314]lr: 0.00001, AccuracyScore: 0.99687, MultiLabelLoss: 0.01669, loss: 0.01669, batch_cost: 0.32842s, reader_cost: 0.00424, ips: 48.71768 images/sec, eta: 0:27:29
+[2022/04/10 10:41:03] root INFO: [Train][Epoch 15/30][Iter: 50/314]lr: 0.00001, AccuracyScore: 0.99381, MultiLabelLoss: 0.02119, loss: 0.02119, batch_cost: 0.32784s, reader_cost: 0.00235, ips: 48.80405 images/sec, eta: 0:27:10
+[2022/04/10 10:41:19] root INFO: [Train][Epoch 15/30][Iter: 100/314]lr: 0.00001, AccuracyScore: 0.99415, MultiLabelLoss: 0.02154, loss: 0.02154, batch_cost: 0.32776s, reader_cost: 0.00276, ips: 48.81655 images/sec, eta: 0:26:53
+[2022/04/10 10:41:35] root INFO: [Train][Epoch 15/30][Iter: 150/314]lr: 0.00001, AccuracyScore: 0.99435, MultiLabelLoss: 0.02061, loss: 0.02061, batch_cost: 0.32722s, reader_cost: 0.00254, ips: 48.89741 images/sec, eta: 0:26:34
+[2022/04/10 10:41:52] root INFO: [Train][Epoch 15/30][Iter: 200/314]lr: 0.00001, AccuracyScore: 0.99450, MultiLabelLoss: 0.01997, loss: 0.01997, batch_cost: 0.32703s, reader_cost: 0.00241, ips: 48.92549 images/sec, eta: 0:26:17
+[2022/04/10 10:42:08] root INFO: [Train][Epoch 15/30][Iter: 250/314]lr: 0.00001, AccuracyScore: 0.99451, MultiLabelLoss: 0.01975, loss: 0.01975, batch_cost: 0.32697s, reader_cost: 0.00223, ips: 48.93390 images/sec, eta: 0:26:00
+[2022/04/10 10:42:24] root INFO: [Train][Epoch 15/30][Iter: 300/314]lr: 0.00001, AccuracyScore: 0.99444, MultiLabelLoss: 0.01989, loss: 0.01989, batch_cost: 0.32673s, reader_cost: 0.00206, ips: 48.96937 images/sec, eta: 0:25:43
+[2022/04/10 10:42:28] root INFO: [Train][Epoch 15/30][Avg]AccuracyScore: 0.99435, MultiLabelLoss: 0.02016, loss: 0.02016
+[2022/04/10 10:42:29] root INFO: [Eval][Epoch 15][Iter: 0/310]MultiLabelLoss: 0.08310, loss: 0.08310, AccuracyScore: 0.97188, batch_cost: 0.81362s, reader_cost: 0.71471, ips: 19.66521 images/sec
+[2022/04/10 10:42:34] root INFO: [Eval][Epoch 15][Iter: 50/310]MultiLabelLoss: 0.02353, loss: 0.02353, AccuracyScore: 0.99063, batch_cost: 0.09705s, reader_cost: 0.00018, ips: 164.86191 images/sec
+[2022/04/10 10:42:39] root INFO: [Eval][Epoch 15][Iter: 100/310]MultiLabelLoss: 0.00133, loss: 0.00133, AccuracyScore: 0.99687, batch_cost: 0.09741s, reader_cost: 0.00034, ips: 164.24947 images/sec
+[2022/04/10 10:42:44] root INFO: [Eval][Epoch 15][Iter: 150/310]MultiLabelLoss: 0.01750, loss: 0.01750, AccuracyScore: 0.99687, batch_cost: 0.09743s, reader_cost: 0.00044, ips: 164.22595 images/sec
+[2022/04/10 10:42:49] root INFO: [Eval][Epoch 15][Iter: 200/310]MultiLabelLoss: 0.05143, loss: 0.05143, AccuracyScore: 0.98125, batch_cost: 0.09776s, reader_cost: 0.00066, ips: 163.66342 images/sec
+[2022/04/10 10:42:54] root INFO: [Eval][Epoch 15][Iter: 250/310]MultiLabelLoss: 0.03913, loss: 0.03913, AccuracyScore: 0.98438, batch_cost: 0.09822s, reader_cost: 0.00073, ips: 162.89700 images/sec
+[2022/04/10 10:42:59] root INFO: [Eval][Epoch 15][Iter: 300/310]MultiLabelLoss: 0.04141, loss: 0.04141, AccuracyScore: 0.97812, batch_cost: 0.09839s, reader_cost: 0.00072, ips: 162.61131 images/sec
+[2022/04/10 10:43:00] root INFO: [Eval][Epoch 15][Avg]MultiLabelLoss: 0.02831, loss: 0.02831, AccuracyScore: 0.98665, mAP: 0.94466
+[2022/04/10 10:43:00] root INFO: [Eval][Epoch 15][best metric: 0.9869749597085697]
+[2022/04/10 10:43:01] root INFO: Already save model in ./output/ResNet_CSRA/epoch_15
+[2022/04/10 10:43:02] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:43:03] root INFO: [Train][Epoch 16/30][Iter: 0/314]lr: 0.00001, AccuracyScore: 0.99063, MultiLabelLoss: 0.02716, loss: 0.02716, batch_cost: 0.32798s, reader_cost: 0.00399, ips: 48.78376 images/sec, eta: 0:25:44
+[2022/04/10 10:43:20] root INFO: [Train][Epoch 16/30][Iter: 50/314]lr: 0.00001, AccuracyScore: 0.99467, MultiLabelLoss: 0.02072, loss: 0.02072, batch_cost: 0.32687s, reader_cost: 0.00252, ips: 48.94865 images/sec, eta: 0:25:23
+[2022/04/10 10:43:36] root INFO: [Train][Epoch 16/30][Iter: 100/314]lr: 0.00001, AccuracyScore: 0.99462, MultiLabelLoss: 0.02045, loss: 0.02045, batch_cost: 0.32671s, reader_cost: 0.00254, ips: 48.97319 images/sec, eta: 0:25:06
+[2022/04/10 10:43:52] root INFO: [Train][Epoch 16/30][Iter: 150/314]lr: 0.00001, AccuracyScore: 0.99483, MultiLabelLoss: 0.01943, loss: 0.01943, batch_cost: 0.32618s, reader_cost: 0.00213, ips: 49.05236 images/sec, eta: 0:24:47
+[2022/04/10 10:44:09] root INFO: [Train][Epoch 16/30][Iter: 200/314]lr: 0.00001, AccuracyScore: 0.99487, MultiLabelLoss: 0.01887, loss: 0.01887, batch_cost: 0.32629s, reader_cost: 0.00207, ips: 49.03684 images/sec, eta: 0:24:31
+[2022/04/10 10:44:25] root INFO: [Train][Epoch 16/30][Iter: 250/314]lr: 0.00001, AccuracyScore: 0.99475, MultiLabelLoss: 0.01898, loss: 0.01898, batch_cost: 0.32628s, reader_cost: 0.00199, ips: 49.03783 images/sec, eta: 0:24:15
+[2022/04/10 10:44:41] root INFO: [Train][Epoch 16/30][Iter: 300/314]lr: 0.00001, AccuracyScore: 0.99464, MultiLabelLoss: 0.01922, loss: 0.01922, batch_cost: 0.32620s, reader_cost: 0.00181, ips: 49.05036 images/sec, eta: 0:23:58
+[2022/04/10 10:44:45] root INFO: [Train][Epoch 16/30][Avg]AccuracyScore: 0.99450, MultiLabelLoss: 0.01957, loss: 0.01957
+[2022/04/10 10:44:46] root INFO: [Eval][Epoch 16][Iter: 0/310]MultiLabelLoss: 0.08914, loss: 0.08914, AccuracyScore: 0.96875, batch_cost: 0.78228s, reader_cost: 0.67551, ips: 20.45311 images/sec
+[2022/04/10 10:44:51] root INFO: [Eval][Epoch 16][Iter: 50/310]MultiLabelLoss: 0.02748, loss: 0.02748, AccuracyScore: 0.99063, batch_cost: 0.09694s, reader_cost: 0.00051, ips: 165.05597 images/sec
+[2022/04/10 10:44:56] root INFO: [Eval][Epoch 16][Iter: 100/310]MultiLabelLoss: 0.00536, loss: 0.00536, AccuracyScore: 0.99687, batch_cost: 0.09774s, reader_cost: 0.00062, ips: 163.70356 images/sec
+[2022/04/10 10:45:01] root INFO: [Eval][Epoch 16][Iter: 150/310]MultiLabelLoss: 0.01713, loss: 0.01713, AccuracyScore: 0.99687, batch_cost: 0.09752s, reader_cost: 0.00045, ips: 164.07538 images/sec
+[2022/04/10 10:45:06] root INFO: [Eval][Epoch 16][Iter: 200/310]MultiLabelLoss: 0.04775, loss: 0.04775, AccuracyScore: 0.98125, batch_cost: 0.09783s, reader_cost: 0.00055, ips: 163.54613 images/sec
+[2022/04/10 10:45:11] root INFO: [Eval][Epoch 16][Iter: 250/310]MultiLabelLoss: 0.04231, loss: 0.04231, AccuracyScore: 0.98750, batch_cost: 0.09775s, reader_cost: 0.00047, ips: 163.68167 images/sec
+[2022/04/10 10:45:15] root INFO: [Eval][Epoch 16][Iter: 300/310]MultiLabelLoss: 0.03853, loss: 0.03853, AccuracyScore: 0.98125, batch_cost: 0.09771s, reader_cost: 0.00045, ips: 163.75638 images/sec
+[2022/04/10 10:45:16] root INFO: [Eval][Epoch 16][Avg]MultiLabelLoss: 0.02952, loss: 0.02952, AccuracyScore: 0.98689, mAP: 0.94518
+[2022/04/10 10:45:16] root INFO: [Eval][Epoch 16][best metric: 0.9869749597085697]
+[2022/04/10 10:45:18] root INFO: Already save model in ./output/ResNet_CSRA/epoch_16
+[2022/04/10 10:45:19] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:45:20] root INFO: [Train][Epoch 17/30][Iter: 0/314]lr: 0.00001, AccuracyScore: 0.99375, MultiLabelLoss: 0.01783, loss: 0.01783, batch_cost: 0.32750s, reader_cost: 0.00376, ips: 48.85427 images/sec, eta: 0:23:59
+[2022/04/10 10:45:36] root INFO: [Train][Epoch 17/30][Iter: 50/314]lr: 0.00001, AccuracyScore: 0.99406, MultiLabelLoss: 0.02016, loss: 0.02016, batch_cost: 0.32642s, reader_cost: 0.00127, ips: 49.01713 images/sec, eta: 0:23:38
+[2022/04/10 10:45:53] root INFO: [Train][Epoch 17/30][Iter: 100/314]lr: 0.00001, AccuracyScore: 0.99406, MultiLabelLoss: 0.02001, loss: 0.02001, batch_cost: 0.32582s, reader_cost: 0.00099, ips: 49.10664 images/sec, eta: 0:23:19
+[2022/04/10 10:46:09] root INFO: [Train][Epoch 17/30][Iter: 150/314]lr: 0.00001, AccuracyScore: 0.99387, MultiLabelLoss: 0.02060, loss: 0.02060, batch_cost: 0.32576s, reader_cost: 0.00106, ips: 49.11637 images/sec, eta: 0:23:03
+[2022/04/10 10:46:25] root INFO: [Train][Epoch 17/30][Iter: 200/314]lr: 0.00001, AccuracyScore: 0.99405, MultiLabelLoss: 0.02043, loss: 0.02043, batch_cost: 0.32579s, reader_cost: 0.00132, ips: 49.11195 images/sec, eta: 0:22:46
+[2022/04/10 10:46:42] root INFO: [Train][Epoch 17/30][Iter: 250/314]lr: 0.00001, AccuracyScore: 0.99440, MultiLabelLoss: 0.01970, loss: 0.01970, batch_cost: 0.32591s, reader_cost: 0.00125, ips: 49.09391 images/sec, eta: 0:22:31
+[2022/04/10 10:46:58] root INFO: [Train][Epoch 17/30][Iter: 300/314]lr: 0.00001, AccuracyScore: 0.99442, MultiLabelLoss: 0.01949, loss: 0.01949, batch_cost: 0.32601s, reader_cost: 0.00116, ips: 49.07847 images/sec, eta: 0:22:15
+[2022/04/10 10:47:02] root INFO: [Train][Epoch 17/30][Avg]AccuracyScore: 0.99441, MultiLabelLoss: 0.01955, loss: 0.01955
+[2022/04/10 10:47:03] root INFO: [Eval][Epoch 17][Iter: 0/310]MultiLabelLoss: 0.08734, loss: 0.08734, AccuracyScore: 0.96562, batch_cost: 0.74547s, reader_cost: 0.63933, ips: 21.46300 images/sec
+[2022/04/10 10:47:08] root INFO: [Eval][Epoch 17][Iter: 50/310]MultiLabelLoss: 0.02956, loss: 0.02956, AccuracyScore: 0.99063, batch_cost: 0.09762s, reader_cost: 0.00049, ips: 163.89645 images/sec
+[2022/04/10 10:47:13] root INFO: [Eval][Epoch 17][Iter: 100/310]MultiLabelLoss: 0.00513, loss: 0.00513, AccuracyScore: 0.99687, batch_cost: 0.09807s, reader_cost: 0.00077, ips: 163.15196 images/sec
+[2022/04/10 10:47:17] root INFO: [Eval][Epoch 17][Iter: 150/310]MultiLabelLoss: 0.01781, loss: 0.01781, AccuracyScore: 0.99687, batch_cost: 0.09818s, reader_cost: 0.00076, ips: 162.97407 images/sec
+[2022/04/10 10:47:22] root INFO: [Eval][Epoch 17][Iter: 200/310]MultiLabelLoss: 0.05008, loss: 0.05008, AccuracyScore: 0.98125, batch_cost: 0.09853s, reader_cost: 0.00077, ips: 162.38553 images/sec
+[2022/04/10 10:47:27] root INFO: [Eval][Epoch 17][Iter: 250/310]MultiLabelLoss: 0.04171, loss: 0.04171, AccuracyScore: 0.98438, batch_cost: 0.09865s, reader_cost: 0.00078, ips: 162.18744 images/sec
+[2022/04/10 10:47:32] root INFO: [Eval][Epoch 17][Iter: 300/310]MultiLabelLoss: 0.03732, loss: 0.03732, AccuracyScore: 0.98125, batch_cost: 0.09865s, reader_cost: 0.00072, ips: 162.19731 images/sec
+[2022/04/10 10:47:33] root INFO: [Eval][Epoch 17][Avg]MultiLabelLoss: 0.02954, loss: 0.02954, AccuracyScore: 0.98683, mAP: 0.94512
+[2022/04/10 10:47:33] root INFO: [Eval][Epoch 17][best metric: 0.9869749597085697]
+[2022/04/10 10:47:35] root INFO: Already save model in ./output/ResNet_CSRA/epoch_17
+[2022/04/10 10:47:36] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:47:37] root INFO: [Train][Epoch 18/30][Iter: 0/314]lr: 0.00001, AccuracyScore: 0.98750, MultiLabelLoss: 0.02957, loss: 0.02957, batch_cost: 0.32768s, reader_cost: 0.00341, ips: 48.82780 images/sec, eta: 0:22:17
+[2022/04/10 10:47:54] root INFO: [Train][Epoch 18/30][Iter: 50/314]lr: 0.00001, AccuracyScore: 0.99461, MultiLabelLoss: 0.01892, loss: 0.01892, batch_cost: 0.32854s, reader_cost: 0.00392, ips: 48.70099 images/sec, eta: 0:22:04
+[2022/04/10 10:48:10] root INFO: [Train][Epoch 18/30][Iter: 100/314]lr: 0.00001, AccuracyScore: 0.99437, MultiLabelLoss: 0.01950, loss: 0.01950, batch_cost: 0.32764s, reader_cost: 0.00297, ips: 48.83358 images/sec, eta: 0:21:44
+[2022/04/10 10:48:26] root INFO: [Train][Epoch 18/30][Iter: 150/314]lr: 0.00001, AccuracyScore: 0.99460, MultiLabelLoss: 0.01919, loss: 0.01919, batch_cost: 0.32678s, reader_cost: 0.00246, ips: 48.96213 images/sec, eta: 0:21:24
+[2022/04/10 10:48:43] root INFO: [Train][Epoch 18/30][Iter: 200/314]lr: 0.00001, AccuracyScore: 0.99448, MultiLabelLoss: 0.01971, loss: 0.01971, batch_cost: 0.32648s, reader_cost: 0.00240, ips: 49.00792 images/sec, eta: 0:21:07
+[2022/04/10 10:48:59] root INFO: [Train][Epoch 18/30][Iter: 250/314]lr: 0.00001, AccuracyScore: 0.99457, MultiLabelLoss: 0.01966, loss: 0.01966, batch_cost: 0.32620s, reader_cost: 0.00213, ips: 49.04899 images/sec, eta: 0:20:50
+[2022/04/10 10:49:15] root INFO: [Train][Epoch 18/30][Iter: 300/314]lr: 0.00001, AccuracyScore: 0.99447, MultiLabelLoss: 0.02005, loss: 0.02005, batch_cost: 0.32604s, reader_cost: 0.00197, ips: 49.07305 images/sec, eta: 0:20:33
+[2022/04/10 10:49:19] root INFO: [Train][Epoch 18/30][Avg]AccuracyScore: 0.99443, MultiLabelLoss: 0.02009, loss: 0.02009
+[2022/04/10 10:49:20] root INFO: [Eval][Epoch 18][Iter: 0/310]MultiLabelLoss: 0.09324, loss: 0.09324, AccuracyScore: 0.96875, batch_cost: 0.85103s, reader_cost: 0.75362, ips: 18.80082 images/sec
+[2022/04/10 10:49:25] root INFO: [Eval][Epoch 18][Iter: 50/310]MultiLabelLoss: 0.03564, loss: 0.03564, AccuracyScore: 0.99063, batch_cost: 0.09843s, reader_cost: 0.00086, ips: 162.54674 images/sec
+[2022/04/10 10:49:30] root INFO: [Eval][Epoch 18][Iter: 100/310]MultiLabelLoss: 0.00208, loss: 0.00208, AccuracyScore: 0.99687, batch_cost: 0.09890s, reader_cost: 0.00114, ips: 161.77268 images/sec
+[2022/04/10 10:49:35] root INFO: [Eval][Epoch 18][Iter: 150/310]MultiLabelLoss: 0.01946, loss: 0.01946, AccuracyScore: 0.99375, batch_cost: 0.09885s, reader_cost: 0.00104, ips: 161.85900 images/sec
+[2022/04/10 10:49:40] root INFO: [Eval][Epoch 18][Iter: 200/310]MultiLabelLoss: 0.04539, loss: 0.04539, AccuracyScore: 0.98125, batch_cost: 0.09910s, reader_cost: 0.00097, ips: 161.46034 images/sec
+[2022/04/10 10:49:45] root INFO: [Eval][Epoch 18][Iter: 250/310]MultiLabelLoss: 0.04521, loss: 0.04521, AccuracyScore: 0.98750, batch_cost: 0.09891s, reader_cost: 0.00088, ips: 161.76524 images/sec
+[2022/04/10 10:49:50] root INFO: [Eval][Epoch 18][Iter: 300/310]MultiLabelLoss: 0.03569, loss: 0.03569, AccuracyScore: 0.97812, batch_cost: 0.09881s, reader_cost: 0.00085, ips: 161.93194 images/sec
+[2022/04/10 10:49:51] root INFO: [Eval][Epoch 18][Avg]MultiLabelLoss: 0.03107, loss: 0.03107, AccuracyScore: 0.98666, mAP: 0.94556
+[2022/04/10 10:49:51] root INFO: [Eval][Epoch 18][best metric: 0.9869749597085697]
+[2022/04/10 10:49:52] root INFO: Already save model in ./output/ResNet_CSRA/epoch_18
+[2022/04/10 10:49:54] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:49:55] root INFO: [Train][Epoch 19/30][Iter: 0/314]lr: 0.00000, AccuracyScore: 0.99375, MultiLabelLoss: 0.03799, loss: 0.03799, batch_cost: 0.32750s, reader_cost: 0.00397, ips: 48.85479 images/sec, eta: 0:20:34
+[2022/04/10 10:50:11] root INFO: [Train][Epoch 19/30][Iter: 50/314]lr: 0.00000, AccuracyScore: 0.99387, MultiLabelLoss: 0.02143, loss: 0.02143, batch_cost: 0.32823s, reader_cost: 0.00384, ips: 48.74681 images/sec, eta: 0:20:20
+[2022/04/10 10:50:27] root INFO: [Train][Epoch 19/30][Iter: 100/314]lr: 0.00000, AccuracyScore: 0.99455, MultiLabelLoss: 0.01965, loss: 0.01965, batch_cost: 0.32684s, reader_cost: 0.00264, ips: 48.95376 images/sec, eta: 0:19:58
+[2022/04/10 10:50:44] root INFO: [Train][Epoch 19/30][Iter: 150/314]lr: 0.00000, AccuracyScore: 0.99437, MultiLabelLoss: 0.01976, loss: 0.01976, batch_cost: 0.32650s, reader_cost: 0.00219, ips: 49.00489 images/sec, eta: 0:19:41
+[2022/04/10 10:51:00] root INFO: [Train][Epoch 19/30][Iter: 200/314]lr: 0.00000, AccuracyScore: 0.99453, MultiLabelLoss: 0.01952, loss: 0.01952, batch_cost: 0.32622s, reader_cost: 0.00210, ips: 49.04616 images/sec, eta: 0:19:23
+[2022/04/10 10:51:16] root INFO: [Train][Epoch 19/30][Iter: 250/314]lr: 0.00000, AccuracyScore: 0.99458, MultiLabelLoss: 0.01951, loss: 0.01951, batch_cost: 0.32591s, reader_cost: 0.00199, ips: 49.09399 images/sec, eta: 0:19:06
+[2022/04/10 10:51:32] root INFO: [Train][Epoch 19/30][Iter: 300/314]lr: 0.00000, AccuracyScore: 0.99440, MultiLabelLoss: 0.01967, loss: 0.01967, batch_cost: 0.32567s, reader_cost: 0.00185, ips: 49.12978 images/sec, eta: 0:18:49
+[2022/04/10 10:51:37] root INFO: [Train][Epoch 19/30][Avg]AccuracyScore: 0.99432, MultiLabelLoss: 0.01984, loss: 0.01984
+[2022/04/10 10:51:37] root INFO: [Eval][Epoch 19][Iter: 0/310]MultiLabelLoss: 0.08954, loss: 0.08954, AccuracyScore: 0.96875, batch_cost: 0.79220s, reader_cost: 0.69451, ips: 20.19698 images/sec
+[2022/04/10 10:51:42] root INFO: [Eval][Epoch 19][Iter: 50/310]MultiLabelLoss: 0.02409, loss: 0.02409, AccuracyScore: 0.99063, batch_cost: 0.09838s, reader_cost: 0.00090, ips: 162.63198 images/sec
+[2022/04/10 10:51:47] root INFO: [Eval][Epoch 19][Iter: 100/310]MultiLabelLoss: 0.00569, loss: 0.00569, AccuracyScore: 0.99687, batch_cost: 0.09867s, reader_cost: 0.00098, ips: 162.15641 images/sec
+[2022/04/10 10:51:52] root INFO: [Eval][Epoch 19][Iter: 150/310]MultiLabelLoss: 0.01790, loss: 0.01790, AccuracyScore: 0.99687, batch_cost: 0.09898s, reader_cost: 0.00108, ips: 161.64929 images/sec
+[2022/04/10 10:51:57] root INFO: [Eval][Epoch 19][Iter: 200/310]MultiLabelLoss: 0.05481, loss: 0.05481, AccuracyScore: 0.98125, batch_cost: 0.09901s, reader_cost: 0.00096, ips: 161.60718 images/sec
+[2022/04/10 10:52:02] root INFO: [Eval][Epoch 19][Iter: 250/310]MultiLabelLoss: 0.04031, loss: 0.04031, AccuracyScore: 0.99063, batch_cost: 0.09909s, reader_cost: 0.00088, ips: 161.46747 images/sec
+[2022/04/10 10:52:07] root INFO: [Eval][Epoch 19][Iter: 300/310]MultiLabelLoss: 0.04124, loss: 0.04124, AccuracyScore: 0.98125, batch_cost: 0.09910s, reader_cost: 0.00086, ips: 161.45801 images/sec
+[2022/04/10 10:52:08] root INFO: [Eval][Epoch 19][Avg]MultiLabelLoss: 0.02819, loss: 0.02819, AccuracyScore: 0.98684, mAP: 0.94558
+[2022/04/10 10:52:08] root INFO: [Eval][Epoch 19][best metric: 0.9869749597085697]
+[2022/04/10 10:52:10] root INFO: Already save model in ./output/ResNet_CSRA/epoch_19
+[2022/04/10 10:52:11] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:52:12] root INFO: [Train][Epoch 20/30][Iter: 0/314]lr: 0.00000, AccuracyScore: 1.00000, MultiLabelLoss: 0.00842, loss: 0.00842, batch_cost: 0.32705s, reader_cost: 0.00380, ips: 48.92186 images/sec, eta: 0:18:49
+[2022/04/10 10:52:28] root INFO: [Train][Epoch 20/30][Iter: 50/314]lr: 0.00000, AccuracyScore: 0.99363, MultiLabelLoss: 0.02157, loss: 0.02157, batch_cost: 0.32835s, reader_cost: 0.00372, ips: 48.72851 images/sec, eta: 0:18:37
+[2022/04/10 10:52:45] root INFO: [Train][Epoch 20/30][Iter: 100/314]lr: 0.00000, AccuracyScore: 0.99369, MultiLabelLoss: 0.02144, loss: 0.02144, batch_cost: 0.32740s, reader_cost: 0.00267, ips: 48.86937 images/sec, eta: 0:18:18
+[2022/04/10 10:53:01] root INFO: [Train][Epoch 20/30][Iter: 150/314]lr: 0.00000, AccuracyScore: 0.99421, MultiLabelLoss: 0.02060, loss: 0.02060, batch_cost: 0.32727s, reader_cost: 0.00228, ips: 48.88916 images/sec, eta: 0:18:01
+[2022/04/10 10:53:17] root INFO: [Train][Epoch 20/30][Iter: 200/314]lr: 0.00000, AccuracyScore: 0.99442, MultiLabelLoss: 0.02022, loss: 0.02022, batch_cost: 0.32722s, reader_cost: 0.00202, ips: 48.89701 images/sec, eta: 0:17:44
+[2022/04/10 10:53:34] root INFO: [Train][Epoch 20/30][Iter: 250/314]lr: 0.00000, AccuracyScore: 0.99442, MultiLabelLoss: 0.02004, loss: 0.02004, batch_cost: 0.32674s, reader_cost: 0.00178, ips: 48.96860 images/sec, eta: 0:17:26
+[2022/04/10 10:53:50] root INFO: [Train][Epoch 20/30][Iter: 300/314]lr: 0.00000, AccuracyScore: 0.99451, MultiLabelLoss: 0.01987, loss: 0.01987, batch_cost: 0.32635s, reader_cost: 0.00175, ips: 49.02643 images/sec, eta: 0:17:09
+[2022/04/10 10:53:54] root INFO: [Train][Epoch 20/30][Avg]AccuracyScore: 0.99457, MultiLabelLoss: 0.01977, loss: 0.01977
+[2022/04/10 10:53:55] root INFO: [Eval][Epoch 20][Iter: 0/310]MultiLabelLoss: 0.08137, loss: 0.08137, AccuracyScore: 0.97500, batch_cost: 0.79038s, reader_cost: 0.68999, ips: 20.24339 images/sec
+[2022/04/10 10:54:00] root INFO: [Eval][Epoch 20][Iter: 50/310]MultiLabelLoss: 0.02532, loss: 0.02532, AccuracyScore: 0.99063, batch_cost: 0.09790s, reader_cost: 0.00041, ips: 163.43166 images/sec
+[2022/04/10 10:54:04] root INFO: [Eval][Epoch 20][Iter: 100/310]MultiLabelLoss: 0.00055, loss: 0.00055, AccuracyScore: 0.99687, batch_cost: 0.09765s, reader_cost: 0.00050, ips: 163.84671 images/sec
+[2022/04/10 10:54:09] root INFO: [Eval][Epoch 20][Iter: 150/310]MultiLabelLoss: 0.01601, loss: 0.01601, AccuracyScore: 0.99687, batch_cost: 0.09762s, reader_cost: 0.00037, ips: 163.89280 images/sec
+[2022/04/10 10:54:14] root INFO: [Eval][Epoch 20][Iter: 200/310]MultiLabelLoss: 0.05685, loss: 0.05685, AccuracyScore: 0.97812, batch_cost: 0.09775s, reader_cost: 0.00033, ips: 163.67684 images/sec
+[2022/04/10 10:54:19] root INFO: [Eval][Epoch 20][Iter: 250/310]MultiLabelLoss: 0.03786, loss: 0.03786, AccuracyScore: 0.98750, batch_cost: 0.09783s, reader_cost: 0.00038, ips: 163.55357 images/sec
+[2022/04/10 10:54:24] root INFO: [Eval][Epoch 20][Iter: 300/310]MultiLabelLoss: 0.04311, loss: 0.04311, AccuracyScore: 0.97812, batch_cost: 0.09805s, reader_cost: 0.00044, ips: 163.18864 images/sec
+[2022/04/10 10:54:25] root INFO: [Eval][Epoch 20][Avg]MultiLabelLoss: 0.02901, loss: 0.02901, AccuracyScore: 0.98706, mAP: 0.94533
+[2022/04/10 10:54:27] root INFO: Already save model in ./output/ResNet_CSRA/best_model
+[2022/04/10 10:54:27] root INFO: [Eval][Epoch 20][best metric: 0.9870557354609685]
+[2022/04/10 10:54:28] root INFO: Already save model in ./output/ResNet_CSRA/epoch_20
+[2022/04/10 10:54:29] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:54:30] root INFO: [Train][Epoch 21/30][Iter: 0/314]lr: 0.00000, AccuracyScore: 1.00000, MultiLabelLoss: 0.00603, loss: 0.00603, batch_cost: 0.32769s, reader_cost: 0.00373, ips: 48.82669 images/sec, eta: 0:17:08
+[2022/04/10 10:54:47] root INFO: [Train][Epoch 21/30][Iter: 50/314]lr: 0.00000, AccuracyScore: 0.99381, MultiLabelLoss: 0.02023, loss: 0.02023, batch_cost: 0.32396s, reader_cost: 0.00054, ips: 49.38891 images/sec, eta: 0:16:41
+[2022/04/10 10:55:03] root INFO: [Train][Epoch 21/30][Iter: 100/314]lr: 0.00000, AccuracyScore: 0.99421, MultiLabelLoss: 0.02024, loss: 0.02024, batch_cost: 0.32467s, reader_cost: 0.00106, ips: 49.28156 images/sec, eta: 0:16:26
+[2022/04/10 10:55:19] root INFO: [Train][Epoch 21/30][Iter: 150/314]lr: 0.00000, AccuracyScore: 0.99452, MultiLabelLoss: 0.01974, loss: 0.01974, batch_cost: 0.32508s, reader_cost: 0.00124, ips: 49.21884 images/sec, eta: 0:16:11
+[2022/04/10 10:55:35] root INFO: [Train][Epoch 21/30][Iter: 200/314]lr: 0.00000, AccuracyScore: 0.99442, MultiLabelLoss: 0.01997, loss: 0.01997, batch_cost: 0.32537s, reader_cost: 0.00131, ips: 49.17496 images/sec, eta: 0:15:56
+[2022/04/10 10:55:52] root INFO: [Train][Epoch 21/30][Iter: 250/314]lr: 0.00000, AccuracyScore: 0.99427, MultiLabelLoss: 0.02015, loss: 0.02015, batch_cost: 0.32561s, reader_cost: 0.00119, ips: 49.13821 images/sec, eta: 0:15:41
+[2022/04/10 10:56:08] root INFO: [Train][Epoch 21/30][Iter: 300/314]lr: 0.00000, AccuracyScore: 0.99430, MultiLabelLoss: 0.01999, loss: 0.01999, batch_cost: 0.32590s, reader_cost: 0.00128, ips: 49.09447 images/sec, eta: 0:15:25
+[2022/04/10 10:56:12] root INFO: [Train][Epoch 21/30][Avg]AccuracyScore: 0.99429, MultiLabelLoss: 0.02000, loss: 0.02000
+[2022/04/10 10:56:13] root INFO: [Eval][Epoch 21][Iter: 0/310]MultiLabelLoss: 0.07917, loss: 0.07917, AccuracyScore: 0.96875, batch_cost: 0.87466s, reader_cost: 0.77546, ips: 18.29282 images/sec
+[2022/04/10 10:56:18] root INFO: [Eval][Epoch 21][Iter: 50/310]MultiLabelLoss: 0.03222, loss: 0.03222, AccuracyScore: 0.99063, batch_cost: 0.09821s, reader_cost: 0.00040, ips: 162.92097 images/sec
+[2022/04/10 10:56:23] root INFO: [Eval][Epoch 21][Iter: 100/310]MultiLabelLoss: 0.00505, loss: 0.00505, AccuracyScore: 0.99687, batch_cost: 0.09769s, reader_cost: 0.00028, ips: 163.78214 images/sec
+[2022/04/10 10:56:28] root INFO: [Eval][Epoch 21][Iter: 150/310]MultiLabelLoss: 0.01749, loss: 0.01749, AccuracyScore: 0.99687, batch_cost: 0.09785s, reader_cost: 0.00037, ips: 163.51762 images/sec
+[2022/04/10 10:56:33] root INFO: [Eval][Epoch 21][Iter: 200/310]MultiLabelLoss: 0.05209, loss: 0.05209, AccuracyScore: 0.98438, batch_cost: 0.09828s, reader_cost: 0.00056, ips: 162.79779 images/sec
+[2022/04/10 10:56:38] root INFO: [Eval][Epoch 21][Iter: 250/310]MultiLabelLoss: 0.04283, loss: 0.04283, AccuracyScore: 0.98750, batch_cost: 0.09847s, reader_cost: 0.00054, ips: 162.47937 images/sec
+[2022/04/10 10:56:43] root INFO: [Eval][Epoch 21][Iter: 300/310]MultiLabelLoss: 0.03670, loss: 0.03670, AccuracyScore: 0.97812, batch_cost: 0.09833s, reader_cost: 0.00052, ips: 162.71529 images/sec
+[2022/04/10 10:56:44] root INFO: [Eval][Epoch 21][Avg]MultiLabelLoss: 0.03063, loss: 0.03063, AccuracyScore: 0.98682, mAP: 0.94509
+[2022/04/10 10:56:44] root INFO: [Eval][Epoch 21][best metric: 0.9870557354609685]
+[2022/04/10 10:56:45] root INFO: Already save model in ./output/ResNet_CSRA/epoch_21
+[2022/04/10 10:56:46] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:56:47] root INFO: [Train][Epoch 22/30][Iter: 0/314]lr: 0.00000, AccuracyScore: 1.00000, MultiLabelLoss: 0.00736, loss: 0.00736, batch_cost: 0.32706s, reader_cost: 0.00299, ips: 48.92063 images/sec, eta: 0:15:24
+[2022/04/10 10:57:04] root INFO: [Train][Epoch 22/30][Iter: 50/314]lr: 0.00000, AccuracyScore: 0.99430, MultiLabelLoss: 0.01926, loss: 0.01926, batch_cost: 0.33082s, reader_cost: 0.00387, ips: 48.36463 images/sec, eta: 0:15:18
+[2022/04/10 10:57:20] root INFO: [Train][Epoch 22/30][Iter: 100/314]lr: 0.00000, AccuracyScore: 0.99415, MultiLabelLoss: 0.02028, loss: 0.02028, batch_cost: 0.33040s, reader_cost: 0.00309, ips: 48.42643 images/sec, eta: 0:15:00
+[2022/04/10 10:57:37] root INFO: [Train][Epoch 22/30][Iter: 150/314]lr: 0.00000, AccuracyScore: 0.99433, MultiLabelLoss: 0.02035, loss: 0.02035, batch_cost: 0.32892s, reader_cost: 0.00256, ips: 48.64368 images/sec, eta: 0:14:40
+[2022/04/10 10:57:53] root INFO: [Train][Epoch 22/30][Iter: 200/314]lr: 0.00000, AccuracyScore: 0.99456, MultiLabelLoss: 0.01978, loss: 0.01978, batch_cost: 0.32806s, reader_cost: 0.00226, ips: 48.77188 images/sec, eta: 0:14:21
+[2022/04/10 10:58:09] root INFO: [Train][Epoch 22/30][Iter: 250/314]lr: 0.00000, AccuracyScore: 0.99445, MultiLabelLoss: 0.02037, loss: 0.02037, batch_cost: 0.32778s, reader_cost: 0.00206, ips: 48.81324 images/sec, eta: 0:14:04
+[2022/04/10 10:58:25] root INFO: [Train][Epoch 22/30][Iter: 300/314]lr: 0.00000, AccuracyScore: 0.99444, MultiLabelLoss: 0.02021, loss: 0.02021, batch_cost: 0.32748s, reader_cost: 0.00182, ips: 48.85863 images/sec, eta: 0:13:47
+[2022/04/10 10:58:30] root INFO: [Train][Epoch 22/30][Avg]AccuracyScore: 0.99449, MultiLabelLoss: 0.02013, loss: 0.02013
+[2022/04/10 10:58:30] root INFO: [Eval][Epoch 22][Iter: 0/310]MultiLabelLoss: 0.08321, loss: 0.08321, AccuracyScore: 0.96875, batch_cost: 0.67150s, reader_cost: 0.56976, ips: 23.82740 images/sec
+[2022/04/10 10:58:35] root INFO: [Eval][Epoch 22][Iter: 50/310]MultiLabelLoss: 0.03589, loss: 0.03589, AccuracyScore: 0.99063, batch_cost: 0.09927s, reader_cost: 0.00044, ips: 161.18162 images/sec
+[2022/04/10 10:58:40] root INFO: [Eval][Epoch 22][Iter: 100/310]MultiLabelLoss: 0.00412, loss: 0.00412, AccuracyScore: 0.99687, batch_cost: 0.09852s, reader_cost: 0.00036, ips: 162.39542 images/sec
+[2022/04/10 10:58:45] root INFO: [Eval][Epoch 22][Iter: 150/310]MultiLabelLoss: 0.01885, loss: 0.01885, AccuracyScore: 0.99687, batch_cost: 0.09857s, reader_cost: 0.00047, ips: 162.32336 images/sec
+[2022/04/10 10:58:50] root INFO: [Eval][Epoch 22][Iter: 200/310]MultiLabelLoss: 0.04693, loss: 0.04693, AccuracyScore: 0.98125, batch_cost: 0.09850s, reader_cost: 0.00052, ips: 162.43879 images/sec
+[2022/04/10 10:58:55] root INFO: [Eval][Epoch 22][Iter: 250/310]MultiLabelLoss: 0.04743, loss: 0.04743, AccuracyScore: 0.98438, batch_cost: 0.09842s, reader_cost: 0.00056, ips: 162.57428 images/sec
+[2022/04/10 10:59:00] root INFO: [Eval][Epoch 22][Iter: 300/310]MultiLabelLoss: 0.03424, loss: 0.03424, AccuracyScore: 0.98438, batch_cost: 0.09821s, reader_cost: 0.00053, ips: 162.92016 images/sec
+[2022/04/10 10:59:01] root INFO: [Eval][Epoch 22][Avg]MultiLabelLoss: 0.03041, loss: 0.03041, AccuracyScore: 0.98707, mAP: 0.94514
+[2022/04/10 10:59:02] root INFO: Already save model in ./output/ResNet_CSRA/best_model
+[2022/04/10 10:59:02] root INFO: [Eval][Epoch 22][best metric: 0.9870658330077694]
+[2022/04/10 10:59:04] root INFO: Already save model in ./output/ResNet_CSRA/epoch_22
+[2022/04/10 10:59:05] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 10:59:06] root INFO: [Train][Epoch 23/30][Iter: 0/314]lr: 0.00000, AccuracyScore: 1.00000, MultiLabelLoss: 0.00870, loss: 0.00870, batch_cost: 0.32878s, reader_cost: 0.00372, ips: 48.66427 images/sec, eta: 0:13:45
+[2022/04/10 10:59:22] root INFO: [Train][Epoch 23/30][Iter: 50/314]lr: 0.00000, AccuracyScore: 0.99485, MultiLabelLoss: 0.01938, loss: 0.01938, batch_cost: 0.32777s, reader_cost: 0.00251, ips: 48.81449 images/sec, eta: 0:13:26
+[2022/04/10 10:59:39] root INFO: [Train][Epoch 23/30][Iter: 100/314]lr: 0.00000, AccuracyScore: 0.99493, MultiLabelLoss: 0.01969, loss: 0.01969, batch_cost: 0.32800s, reader_cost: 0.00260, ips: 48.78076 images/sec, eta: 0:13:11
+[2022/04/10 10:59:55] root INFO: [Train][Epoch 23/30][Iter: 150/314]lr: 0.00000, AccuracyScore: 0.99510, MultiLabelLoss: 0.01914, loss: 0.01914, batch_cost: 0.32784s, reader_cost: 0.00246, ips: 48.80393 images/sec, eta: 0:12:54
+[2022/04/10 11:00:11] root INFO: [Train][Epoch 23/30][Iter: 200/314]lr: 0.00000, AccuracyScore: 0.99457, MultiLabelLoss: 0.01989, loss: 0.01989, batch_cost: 0.32736s, reader_cost: 0.00221, ips: 48.87636 images/sec, eta: 0:12:36
+[2022/04/10 11:00:28] root INFO: [Train][Epoch 23/30][Iter: 250/314]lr: 0.00000, AccuracyScore: 0.99462, MultiLabelLoss: 0.01968, loss: 0.01968, batch_cost: 0.32704s, reader_cost: 0.00209, ips: 48.92295 images/sec, eta: 0:12:19
+[2022/04/10 11:00:44] root INFO: [Train][Epoch 23/30][Iter: 300/314]lr: 0.00000, AccuracyScore: 0.99471, MultiLabelLoss: 0.01932, loss: 0.01932, batch_cost: 0.32686s, reader_cost: 0.00208, ips: 48.95073 images/sec, eta: 0:12:03
+[2022/04/10 11:00:48] root INFO: [Train][Epoch 23/30][Avg]AccuracyScore: 0.99469, MultiLabelLoss: 0.01933, loss: 0.01933
+[2022/04/10 11:00:49] root INFO: [Eval][Epoch 23][Iter: 0/310]MultiLabelLoss: 0.09040, loss: 0.09040, AccuracyScore: 0.96562, batch_cost: 0.79138s, reader_cost: 0.69188, ips: 20.21789 images/sec
+[2022/04/10 11:00:54] root INFO: [Eval][Epoch 23][Iter: 50/310]MultiLabelLoss: 0.02695, loss: 0.02695, AccuracyScore: 0.99063, batch_cost: 0.09912s, reader_cost: 0.00096, ips: 161.41638 images/sec
+[2022/04/10 11:00:59] root INFO: [Eval][Epoch 23][Iter: 100/310]MultiLabelLoss: 0.01115, loss: 0.01115, AccuracyScore: 0.99687, batch_cost: 0.09948s, reader_cost: 0.00100, ips: 160.84132 images/sec
+[2022/04/10 11:01:04] root INFO: [Eval][Epoch 23][Iter: 150/310]MultiLabelLoss: 0.01846, loss: 0.01846, AccuracyScore: 0.99687, batch_cost: 0.09948s, reader_cost: 0.00087, ips: 160.83583 images/sec
+[2022/04/10 11:01:09] root INFO: [Eval][Epoch 23][Iter: 200/310]MultiLabelLoss: 0.05600, loss: 0.05600, AccuracyScore: 0.98125, batch_cost: 0.09936s, reader_cost: 0.00082, ips: 161.02516 images/sec
+[2022/04/10 11:01:14] root INFO: [Eval][Epoch 23][Iter: 250/310]MultiLabelLoss: 0.04176, loss: 0.04176, AccuracyScore: 0.98750, batch_cost: 0.09926s, reader_cost: 0.00081, ips: 161.18982 images/sec
+[2022/04/10 11:01:19] root INFO: [Eval][Epoch 23][Iter: 300/310]MultiLabelLoss: 0.04079, loss: 0.04079, AccuracyScore: 0.97500, batch_cost: 0.09922s, reader_cost: 0.00081, ips: 161.26264 images/sec
+[2022/04/10 11:01:20] root INFO: [Eval][Epoch 23][Avg]MultiLabelLoss: 0.02956, loss: 0.02956, AccuracyScore: 0.98669, mAP: 0.94557
+[2022/04/10 11:01:20] root INFO: [Eval][Epoch 23][best metric: 0.9870658330077694]
+[2022/04/10 11:01:21] root INFO: Already save model in ./output/ResNet_CSRA/epoch_23
+[2022/04/10 11:01:22] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 11:01:23] root INFO: [Train][Epoch 24/30][Iter: 0/314]lr: 0.00000, AccuracyScore: 0.98750, MultiLabelLoss: 0.03635, loss: 0.03635, batch_cost: 0.32817s, reader_cost: 0.00399, ips: 48.75544 images/sec, eta: 0:12:01
+[2022/04/10 11:01:40] root INFO: [Train][Epoch 24/30][Iter: 50/314]lr: 0.00000, AccuracyScore: 0.99406, MultiLabelLoss: 0.01997, loss: 0.01997, batch_cost: 0.32586s, reader_cost: 0.00126, ips: 49.10032 images/sec, eta: 0:11:39
+[2022/04/10 11:01:56] root INFO: [Train][Epoch 24/30][Iter: 100/314]lr: 0.00000, AccuracyScore: 0.99378, MultiLabelLoss: 0.02093, loss: 0.02093, batch_cost: 0.32525s, reader_cost: 0.00145, ips: 49.19365 images/sec, eta: 0:11:22
+[2022/04/10 11:02:12] root INFO: [Train][Epoch 24/30][Iter: 150/314]lr: 0.00000, AccuracyScore: 0.99396, MultiLabelLoss: 0.02045, loss: 0.02045, batch_cost: 0.32515s, reader_cost: 0.00139, ips: 49.20813 images/sec, eta: 0:11:05
+[2022/04/10 11:02:28] root INFO: [Train][Epoch 24/30][Iter: 200/314]lr: 0.00000, AccuracyScore: 0.99397, MultiLabelLoss: 0.02074, loss: 0.02074, batch_cost: 0.32536s, reader_cost: 0.00136, ips: 49.17613 images/sec, eta: 0:10:50
+[2022/04/10 11:02:45] root INFO: [Train][Epoch 24/30][Iter: 250/314]lr: 0.00000, AccuracyScore: 0.99399, MultiLabelLoss: 0.02075, loss: 0.02075, batch_cost: 0.32582s, reader_cost: 0.00157, ips: 49.10664 images/sec, eta: 0:10:34
+[2022/04/10 11:03:01] root INFO: [Train][Epoch 24/30][Iter: 300/314]lr: 0.00000, AccuracyScore: 0.99400, MultiLabelLoss: 0.02076, loss: 0.02076, batch_cost: 0.32569s, reader_cost: 0.00149, ips: 49.12614 images/sec, eta: 0:10:18
+[2022/04/10 11:03:05] root INFO: [Train][Epoch 24/30][Avg]AccuracyScore: 0.99398, MultiLabelLoss: 0.02074, loss: 0.02074
+[2022/04/10 11:03:06] root INFO: [Eval][Epoch 24][Iter: 0/310]MultiLabelLoss: 0.08698, loss: 0.08698, AccuracyScore: 0.96875, batch_cost: 0.79283s, reader_cost: 0.68414, ips: 20.18099 images/sec
+[2022/04/10 11:03:11] root INFO: [Eval][Epoch 24][Iter: 50/310]MultiLabelLoss: 0.03730, loss: 0.03730, AccuracyScore: 0.99063, batch_cost: 0.09747s, reader_cost: 0.00050, ips: 164.15867 images/sec
+[2022/04/10 11:03:16] root INFO: [Eval][Epoch 24][Iter: 100/310]MultiLabelLoss: 0.00737, loss: 0.00737, AccuracyScore: 0.99687, batch_cost: 0.09749s, reader_cost: 0.00054, ips: 164.12415 images/sec
+[2022/04/10 11:03:21] root INFO: [Eval][Epoch 24][Iter: 150/310]MultiLabelLoss: 0.01934, loss: 0.01934, AccuracyScore: 0.99687, batch_cost: 0.09773s, reader_cost: 0.00072, ips: 163.71396 images/sec
+[2022/04/10 11:03:26] root INFO: [Eval][Epoch 24][Iter: 200/310]MultiLabelLoss: 0.04932, loss: 0.04932, AccuracyScore: 0.98125, batch_cost: 0.09798s, reader_cost: 0.00074, ips: 163.29529 images/sec
+[2022/04/10 11:03:30] root INFO: [Eval][Epoch 24][Iter: 250/310]MultiLabelLoss: 0.05174, loss: 0.05174, AccuracyScore: 0.98750, batch_cost: 0.09787s, reader_cost: 0.00063, ips: 163.47423 images/sec
+[2022/04/10 11:03:35] root INFO: [Eval][Epoch 24][Iter: 300/310]MultiLabelLoss: 0.03634, loss: 0.03634, AccuracyScore: 0.97812, batch_cost: 0.09791s, reader_cost: 0.00065, ips: 163.41582 images/sec
+[2022/04/10 11:03:36] root INFO: [Eval][Epoch 24][Avg]MultiLabelLoss: 0.03076, loss: 0.03076, AccuracyScore: 0.98682, mAP: 0.94519
+[2022/04/10 11:03:36] root INFO: [Eval][Epoch 24][best metric: 0.9870658330077694]
+[2022/04/10 11:03:38] root INFO: Already save model in ./output/ResNet_CSRA/epoch_24
+[2022/04/10 11:03:39] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 11:03:40] root INFO: [Train][Epoch 25/30][Iter: 0/314]lr: 0.00000, AccuracyScore: 0.99687, MultiLabelLoss: 0.01538, loss: 0.01538, batch_cost: 0.32698s, reader_cost: 0.00343, ips: 48.93316 images/sec, eta: 0:10:16
+[2022/04/10 11:03:56] root INFO: [Train][Epoch 25/30][Iter: 50/314]lr: 0.00000, AccuracyScore: 0.99498, MultiLabelLoss: 0.02051, loss: 0.02051, batch_cost: 0.32848s, reader_cost: 0.00280, ips: 48.70922 images/sec, eta: 0:10:02
+[2022/04/10 11:04:13] root INFO: [Train][Epoch 25/30][Iter: 100/314]lr: 0.00000, AccuracyScore: 0.99455, MultiLabelLoss: 0.02114, loss: 0.02114, batch_cost: 0.32701s, reader_cost: 0.00185, ips: 48.92837 images/sec, eta: 0:09:43
+[2022/04/10 11:04:29] root INFO: [Train][Epoch 25/30][Iter: 150/314]lr: 0.00000, AccuracyScore: 0.99458, MultiLabelLoss: 0.02062, loss: 0.02062, batch_cost: 0.32639s, reader_cost: 0.00178, ips: 49.02050 images/sec, eta: 0:09:25
+[2022/04/10 11:04:45] root INFO: [Train][Epoch 25/30][Iter: 200/314]lr: 0.00000, AccuracyScore: 0.99425, MultiLabelLoss: 0.02110, loss: 0.02110, batch_cost: 0.32566s, reader_cost: 0.00155, ips: 49.13079 images/sec, eta: 0:09:08
+[2022/04/10 11:05:01] root INFO: [Train][Epoch 25/30][Iter: 250/314]lr: 0.00000, AccuracyScore: 0.99435, MultiLabelLoss: 0.02059, loss: 0.02059, batch_cost: 0.32550s, reader_cost: 0.00150, ips: 49.15481 images/sec, eta: 0:08:51
+[2022/04/10 11:05:18] root INFO: [Train][Epoch 25/30][Iter: 300/314]lr: 0.00000, AccuracyScore: 0.99442, MultiLabelLoss: 0.02029, loss: 0.02029, batch_cost: 0.32557s, reader_cost: 0.00145, ips: 49.14487 images/sec, eta: 0:08:35
+[2022/04/10 11:05:22] root INFO: [Train][Epoch 25/30][Avg]AccuracyScore: 0.99439, MultiLabelLoss: 0.02027, loss: 0.02027
+[2022/04/10 11:05:23] root INFO: [Eval][Epoch 25][Iter: 0/310]MultiLabelLoss: 0.09525, loss: 0.09525, AccuracyScore: 0.96562, batch_cost: 0.79621s, reader_cost: 0.69914, ips: 20.09511 images/sec
+[2022/04/10 11:05:28] root INFO: [Eval][Epoch 25][Iter: 50/310]MultiLabelLoss: 0.02431, loss: 0.02431, AccuracyScore: 0.99063, batch_cost: 0.09849s, reader_cost: 0.00062, ips: 162.45343 images/sec
+[2022/04/10 11:05:32] root INFO: [Eval][Epoch 25][Iter: 100/310]MultiLabelLoss: 0.00291, loss: 0.00291, AccuracyScore: 0.99687, batch_cost: 0.09836s, reader_cost: 0.00073, ips: 162.66977 images/sec
+[2022/04/10 11:05:37] root INFO: [Eval][Epoch 25][Iter: 150/310]MultiLabelLoss: 0.01785, loss: 0.01785, AccuracyScore: 0.99687, batch_cost: 0.09856s, reader_cost: 0.00080, ips: 162.33745 images/sec
+[2022/04/10 11:05:42] root INFO: [Eval][Epoch 25][Iter: 200/310]MultiLabelLoss: 0.05330, loss: 0.05330, AccuracyScore: 0.97812, batch_cost: 0.09866s, reader_cost: 0.00072, ips: 162.16644 images/sec
+[2022/04/10 11:05:47] root INFO: [Eval][Epoch 25][Iter: 250/310]MultiLabelLoss: 0.04267, loss: 0.04267, AccuracyScore: 0.98750, batch_cost: 0.09851s, reader_cost: 0.00069, ips: 162.42797 images/sec
+[2022/04/10 11:05:52] root INFO: [Eval][Epoch 25][Iter: 300/310]MultiLabelLoss: 0.03331, loss: 0.03331, AccuracyScore: 0.98438, batch_cost: 0.09849s, reader_cost: 0.00068, ips: 162.44588 images/sec
+[2022/04/10 11:05:53] root INFO: [Eval][Epoch 25][Avg]MultiLabelLoss: 0.02819, loss: 0.02819, AccuracyScore: 0.98709, mAP: 0.94569
+[2022/04/10 11:05:55] root INFO: Already save model in ./output/ResNet_CSRA/best_model
+[2022/04/10 11:05:55] root INFO: [Eval][Epoch 25][best metric: 0.9870860248274488]
+[2022/04/10 11:05:56] root INFO: Already save model in ./output/ResNet_CSRA/epoch_25
+[2022/04/10 11:05:57] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 11:05:58] root INFO: [Train][Epoch 26/30][Iter: 0/314]lr: 0.00000, AccuracyScore: 0.99687, MultiLabelLoss: 0.01622, loss: 0.01622, batch_cost: 0.32701s, reader_cost: 0.00345, ips: 48.92797 images/sec, eta: 0:08:33
+[2022/04/10 11:06:14] root INFO: [Train][Epoch 26/30][Iter: 50/314]lr: 0.00000, AccuracyScore: 0.99400, MultiLabelLoss: 0.02063, loss: 0.02063, batch_cost: 0.32703s, reader_cost: 0.00354, ips: 48.92540 images/sec, eta: 0:08:17
+[2022/04/10 11:06:31] root INFO: [Train][Epoch 26/30][Iter: 100/314]lr: 0.00000, AccuracyScore: 0.99356, MultiLabelLoss: 0.02098, loss: 0.02098, batch_cost: 0.32647s, reader_cost: 0.00245, ips: 49.00844 images/sec, eta: 0:07:59
+[2022/04/10 11:06:47] root INFO: [Train][Epoch 26/30][Iter: 150/314]lr: 0.00000, AccuracyScore: 0.99394, MultiLabelLoss: 0.02091, loss: 0.02091, batch_cost: 0.32655s, reader_cost: 0.00208, ips: 48.99650 images/sec, eta: 0:07:43
+[2022/04/10 11:07:03] root INFO: [Train][Epoch 26/30][Iter: 200/314]lr: 0.00000, AccuracyScore: 0.99384, MultiLabelLoss: 0.02121, loss: 0.02121, batch_cost: 0.32656s, reader_cost: 0.00180, ips: 48.99561 images/sec, eta: 0:07:27
+[2022/04/10 11:07:20] root INFO: [Train][Epoch 26/30][Iter: 250/314]lr: 0.00000, AccuracyScore: 0.99416, MultiLabelLoss: 0.02049, loss: 0.02049, batch_cost: 0.32627s, reader_cost: 0.00161, ips: 49.03955 images/sec, eta: 0:07:10
+[2022/04/10 11:07:36] root INFO: [Train][Epoch 26/30][Iter: 300/314]lr: 0.00000, AccuracyScore: 0.99422, MultiLabelLoss: 0.02035, loss: 0.02035, batch_cost: 0.32608s, reader_cost: 0.00146, ips: 49.06728 images/sec, eta: 0:06:54
+[2022/04/10 11:07:40] root INFO: [Train][Epoch 26/30][Avg]AccuracyScore: 0.99425, MultiLabelLoss: 0.02023, loss: 0.02023
+[2022/04/10 11:07:41] root INFO: [Eval][Epoch 26][Iter: 0/310]MultiLabelLoss: 0.08908, loss: 0.08908, AccuracyScore: 0.96562, batch_cost: 0.77283s, reader_cost: 0.67391, ips: 20.70326 images/sec
+[2022/04/10 11:07:46] root INFO: [Eval][Epoch 26][Iter: 50/310]MultiLabelLoss: 0.03594, loss: 0.03594, AccuracyScore: 0.99063, batch_cost: 0.09799s, reader_cost: 0.00036, ips: 163.28117 images/sec
+[2022/04/10 11:07:51] root INFO: [Eval][Epoch 26][Iter: 100/310]MultiLabelLoss: 0.00187, loss: 0.00187, AccuracyScore: 0.99687, batch_cost: 0.09816s, reader_cost: 0.00054, ips: 162.99693 images/sec
+[2022/04/10 11:07:56] root INFO: [Eval][Epoch 26][Iter: 150/310]MultiLabelLoss: 0.02067, loss: 0.02067, AccuracyScore: 0.99375, batch_cost: 0.09800s, reader_cost: 0.00044, ips: 163.26094 images/sec
+[2022/04/10 11:08:00] root INFO: [Eval][Epoch 26][Iter: 200/310]MultiLabelLoss: 0.05558, loss: 0.05558, AccuracyScore: 0.97812, batch_cost: 0.09810s, reader_cost: 0.00045, ips: 163.10386 images/sec
+[2022/04/10 11:08:05] root INFO: [Eval][Epoch 26][Iter: 250/310]MultiLabelLoss: 0.04161, loss: 0.04161, AccuracyScore: 0.98750, batch_cost: 0.09804s, reader_cost: 0.00045, ips: 163.19662 images/sec
+[2022/04/10 11:08:10] root INFO: [Eval][Epoch 26][Iter: 300/310]MultiLabelLoss: 0.03783, loss: 0.03783, AccuracyScore: 0.98125, batch_cost: 0.09812s, reader_cost: 0.00043, ips: 163.07022 images/sec
+[2022/04/10 11:08:11] root INFO: [Eval][Epoch 26][Avg]MultiLabelLoss: 0.03016, loss: 0.03016, AccuracyScore: 0.98668, mAP: 0.94521
+[2022/04/10 11:08:11] root INFO: [Eval][Epoch 26][best metric: 0.9870860248274488]
+[2022/04/10 11:08:13] root INFO: Already save model in ./output/ResNet_CSRA/epoch_26
+[2022/04/10 11:08:14] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 11:08:15] root INFO: [Train][Epoch 27/30][Iter: 0/314]lr: 0.00000, AccuracyScore: 0.99687, MultiLabelLoss: 0.02215, loss: 0.02215, batch_cost: 0.32763s, reader_cost: 0.00363, ips: 48.83550 images/sec, eta: 0:06:51
+[2022/04/10 11:08:32] root INFO: [Train][Epoch 27/30][Iter: 50/314]lr: 0.00000, AccuracyScore: 0.99393, MultiLabelLoss: 0.02288, loss: 0.02288, batch_cost: 0.32708s, reader_cost: 0.00234, ips: 48.91780 images/sec, eta: 0:06:34
+[2022/04/10 11:08:48] root INFO: [Train][Epoch 27/30][Iter: 100/314]lr: 0.00000, AccuracyScore: 0.99403, MultiLabelLoss: 0.02192, loss: 0.02192, batch_cost: 0.32598s, reader_cost: 0.00179, ips: 49.08337 images/sec, eta: 0:06:16
+[2022/04/10 11:09:04] root INFO: [Train][Epoch 27/30][Iter: 150/314]lr: 0.00000, AccuracyScore: 0.99392, MultiLabelLoss: 0.02130, loss: 0.02130, batch_cost: 0.32561s, reader_cost: 0.00147, ips: 49.13831 images/sec, eta: 0:06:00
+[2022/04/10 11:09:20] root INFO: [Train][Epoch 27/30][Iter: 200/314]lr: 0.00000, AccuracyScore: 0.99423, MultiLabelLoss: 0.02050, loss: 0.02050, batch_cost: 0.32553s, reader_cost: 0.00138, ips: 49.15007 images/sec, eta: 0:05:43
+[2022/04/10 11:09:37] root INFO: [Train][Epoch 27/30][Iter: 250/314]lr: 0.00000, AccuracyScore: 0.99421, MultiLabelLoss: 0.02055, loss: 0.02055, batch_cost: 0.32544s, reader_cost: 0.00121, ips: 49.16412 images/sec, eta: 0:05:27
+[2022/04/10 11:09:53] root INFO: [Train][Epoch 27/30][Iter: 300/314]lr: 0.00000, AccuracyScore: 0.99412, MultiLabelLoss: 0.02071, loss: 0.02071, batch_cost: 0.32540s, reader_cost: 0.00128, ips: 49.16982 images/sec, eta: 0:05:11
+[2022/04/10 11:09:57] root INFO: [Train][Epoch 27/30][Avg]AccuracyScore: 0.99407, MultiLabelLoss: 0.02075, loss: 0.02075
+[2022/04/10 11:09:58] root INFO: [Eval][Epoch 27][Iter: 0/310]MultiLabelLoss: 0.08258, loss: 0.08258, AccuracyScore: 0.96562, batch_cost: 0.77413s, reader_cost: 0.67522, ips: 20.66844 images/sec
+[2022/04/10 11:10:03] root INFO: [Eval][Epoch 27][Iter: 50/310]MultiLabelLoss: 0.02927, loss: 0.02927, AccuracyScore: 0.99063, batch_cost: 0.09739s, reader_cost: 0.00039, ips: 164.29425 images/sec
+[2022/04/10 11:10:07] root INFO: [Eval][Epoch 27][Iter: 100/310]MultiLabelLoss: 0.00363, loss: 0.00363, AccuracyScore: 0.99687, batch_cost: 0.09715s, reader_cost: 0.00053, ips: 164.69147 images/sec
+[2022/04/10 11:10:12] root INFO: [Eval][Epoch 27][Iter: 150/310]MultiLabelLoss: 0.01653, loss: 0.01653, AccuracyScore: 0.99687, batch_cost: 0.09753s, reader_cost: 0.00050, ips: 164.04929 images/sec
+[2022/04/10 11:10:17] root INFO: [Eval][Epoch 27][Iter: 200/310]MultiLabelLoss: 0.05468, loss: 0.05468, AccuracyScore: 0.97812, batch_cost: 0.09794s, reader_cost: 0.00058, ips: 163.36009 images/sec
+[2022/04/10 11:10:22] root INFO: [Eval][Epoch 27][Iter: 250/310]MultiLabelLoss: 0.03798, loss: 0.03798, AccuracyScore: 0.99063, batch_cost: 0.09808s, reader_cost: 0.00060, ips: 163.14021 images/sec
+[2022/04/10 11:10:27] root INFO: [Eval][Epoch 27][Iter: 300/310]MultiLabelLoss: 0.03775, loss: 0.03775, AccuracyScore: 0.98438, batch_cost: 0.09817s, reader_cost: 0.00060, ips: 162.98738 images/sec
+[2022/04/10 11:10:28] root INFO: [Eval][Epoch 27][Avg]MultiLabelLoss: 0.02902, loss: 0.02902, AccuracyScore: 0.98680, mAP: 0.94571
+[2022/04/10 11:10:28] root INFO: [Eval][Epoch 27][best metric: 0.9870860248274488]
+[2022/04/10 11:10:29] root INFO: Already save model in ./output/ResNet_CSRA/epoch_27
+[2022/04/10 11:10:31] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 11:10:32] root INFO: [Train][Epoch 28/30][Iter: 0/314]lr: 0.00000, AccuracyScore: 0.98125, MultiLabelLoss: 0.03647, loss: 0.03647, batch_cost: 0.32675s, reader_cost: 0.00327, ips: 48.96672 images/sec, eta: 0:05:07
+[2022/04/10 11:10:48] root INFO: [Train][Epoch 28/30][Iter: 50/314]lr: 0.00000, AccuracyScore: 0.99295, MultiLabelLoss: 0.02180, loss: 0.02180, batch_cost: 0.32751s, reader_cost: 0.00254, ips: 48.85393 images/sec, eta: 0:04:52
+[2022/04/10 11:11:04] root INFO: [Train][Epoch 28/30][Iter: 100/314]lr: 0.00000, AccuracyScore: 0.99415, MultiLabelLoss: 0.01981, loss: 0.01981, batch_cost: 0.32673s, reader_cost: 0.00205, ips: 48.97079 images/sec, eta: 0:04:35
+[2022/04/10 11:11:21] root INFO: [Train][Epoch 28/30][Iter: 150/314]lr: 0.00000, AccuracyScore: 0.99468, MultiLabelLoss: 0.01925, loss: 0.01925, batch_cost: 0.32626s, reader_cost: 0.00199, ips: 49.04068 images/sec, eta: 0:04:18
+[2022/04/10 11:11:37] root INFO: [Train][Epoch 28/30][Iter: 200/314]lr: 0.00000, AccuracyScore: 0.99451, MultiLabelLoss: 0.01983, loss: 0.01983, batch_cost: 0.32617s, reader_cost: 0.00184, ips: 49.05444 images/sec, eta: 0:04:02
+[2022/04/10 11:11:53] root INFO: [Train][Epoch 28/30][Iter: 250/314]lr: 0.00000, AccuracyScore: 0.99455, MultiLabelLoss: 0.01974, loss: 0.01974, batch_cost: 0.32617s, reader_cost: 0.00186, ips: 49.05392 images/sec, eta: 0:03:45
+[2022/04/10 11:12:09] root INFO: [Train][Epoch 28/30][Iter: 300/314]lr: 0.00000, AccuracyScore: 0.99439, MultiLabelLoss: 0.02009, loss: 0.02009, batch_cost: 0.32616s, reader_cost: 0.00184, ips: 49.05639 images/sec, eta: 0:03:29
+[2022/04/10 11:12:14] root INFO: [Train][Epoch 28/30][Avg]AccuracyScore: 0.99434, MultiLabelLoss: 0.02007, loss: 0.02007
+[2022/04/10 11:12:14] root INFO: [Eval][Epoch 28][Iter: 0/310]MultiLabelLoss: 0.08903, loss: 0.08903, AccuracyScore: 0.97188, batch_cost: 0.88493s, reader_cost: 0.78643, ips: 18.08056 images/sec
+[2022/04/10 11:12:19] root INFO: [Eval][Epoch 28][Iter: 50/310]MultiLabelLoss: 0.03089, loss: 0.03089, AccuracyScore: 0.99063, batch_cost: 0.09756s, reader_cost: 0.00055, ips: 163.99421 images/sec
+[2022/04/10 11:12:24] root INFO: [Eval][Epoch 28][Iter: 100/310]MultiLabelLoss: 0.00136, loss: 0.00136, AccuracyScore: 0.99687, batch_cost: 0.09775s, reader_cost: 0.00071, ips: 163.67961 images/sec
+[2022/04/10 11:12:29] root INFO: [Eval][Epoch 28][Iter: 150/310]MultiLabelLoss: 0.01864, loss: 0.01864, AccuracyScore: 0.99687, batch_cost: 0.09800s, reader_cost: 0.00083, ips: 163.26693 images/sec
+[2022/04/10 11:12:34] root INFO: [Eval][Epoch 28][Iter: 200/310]MultiLabelLoss: 0.05656, loss: 0.05656, AccuracyScore: 0.98125, batch_cost: 0.09818s, reader_cost: 0.00085, ips: 162.96777 images/sec
+[2022/04/10 11:12:39] root INFO: [Eval][Epoch 28][Iter: 250/310]MultiLabelLoss: 0.04577, loss: 0.04577, AccuracyScore: 0.98750, batch_cost: 0.09826s, reader_cost: 0.00081, ips: 162.82680 images/sec
+[2022/04/10 11:12:44] root INFO: [Eval][Epoch 28][Iter: 300/310]MultiLabelLoss: 0.03973, loss: 0.03973, AccuracyScore: 0.98438, batch_cost: 0.09845s, reader_cost: 0.00081, ips: 162.52723 images/sec
+[2022/04/10 11:12:45] root INFO: [Eval][Epoch 28][Avg]MultiLabelLoss: 0.02960, loss: 0.02960, AccuracyScore: 0.98690, mAP: 0.94599
+[2022/04/10 11:12:45] root INFO: [Eval][Epoch 28][best metric: 0.9870860248274488]
+[2022/04/10 11:12:46] root INFO: Already save model in ./output/ResNet_CSRA/epoch_28
+[2022/04/10 11:12:48] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 11:12:49] root INFO: [Train][Epoch 29/30][Iter: 0/314]lr: 0.00000, AccuracyScore: 0.99063, MultiLabelLoss: 0.03467, loss: 0.03467, batch_cost: 0.32748s, reader_cost: 0.00378, ips: 48.85825 images/sec, eta: 0:03:25
+[2022/04/10 11:13:05] root INFO: [Train][Epoch 29/30][Iter: 50/314]lr: 0.00000, AccuracyScore: 0.99357, MultiLabelLoss: 0.02196, loss: 0.02196, batch_cost: 0.32560s, reader_cost: 0.00123, ips: 49.14064 images/sec, eta: 0:03:08
+[2022/04/10 11:13:21] root INFO: [Train][Epoch 29/30][Iter: 100/314]lr: 0.00000, AccuracyScore: 0.99360, MultiLabelLoss: 0.02252, loss: 0.02252, batch_cost: 0.32557s, reader_cost: 0.00112, ips: 49.14423 images/sec, eta: 0:02:51
+[2022/04/10 11:13:37] root INFO: [Train][Epoch 29/30][Iter: 150/314]lr: 0.00000, AccuracyScore: 0.99375, MultiLabelLoss: 0.02177, loss: 0.02177, batch_cost: 0.32563s, reader_cost: 0.00120, ips: 49.13613 images/sec, eta: 0:02:35
+[2022/04/10 11:13:54] root INFO: [Train][Epoch 29/30][Iter: 200/314]lr: 0.00000, AccuracyScore: 0.99419, MultiLabelLoss: 0.02062, loss: 0.02062, batch_cost: 0.32533s, reader_cost: 0.00100, ips: 49.18093 images/sec, eta: 0:02:19
+[2022/04/10 11:14:10] root INFO: [Train][Epoch 29/30][Iter: 250/314]lr: 0.00000, AccuracyScore: 0.99402, MultiLabelLoss: 0.02098, loss: 0.02098, batch_cost: 0.32501s, reader_cost: 0.00086, ips: 49.22991 images/sec, eta: 0:02:02
+[2022/04/10 11:14:26] root INFO: [Train][Epoch 29/30][Iter: 300/314]lr: 0.00000, AccuracyScore: 0.99425, MultiLabelLoss: 0.02039, loss: 0.02039, batch_cost: 0.32517s, reader_cost: 0.00087, ips: 49.20462 images/sec, eta: 0:01:46
+[2022/04/10 11:14:30] root INFO: [Train][Epoch 29/30][Avg]AccuracyScore: 0.99423, MultiLabelLoss: 0.02038, loss: 0.02038
+[2022/04/10 11:14:31] root INFO: [Eval][Epoch 29][Iter: 0/310]MultiLabelLoss: 0.08326, loss: 0.08326, AccuracyScore: 0.96562, batch_cost: 0.85302s, reader_cost: 0.75523, ips: 18.75683 images/sec
+[2022/04/10 11:14:36] root INFO: [Eval][Epoch 29][Iter: 50/310]MultiLabelLoss: 0.03466, loss: 0.03466, AccuracyScore: 0.99063, batch_cost: 0.09868s, reader_cost: 0.00055, ips: 162.13974 images/sec
+[2022/04/10 11:14:41] root INFO: [Eval][Epoch 29][Iter: 100/310]MultiLabelLoss: 0.00590, loss: 0.00590, AccuracyScore: 0.99687, batch_cost: 0.09888s, reader_cost: 0.00049, ips: 161.81680 images/sec
+[2022/04/10 11:14:46] root INFO: [Eval][Epoch 29][Iter: 150/310]MultiLabelLoss: 0.01646, loss: 0.01646, AccuracyScore: 0.99687, batch_cost: 0.09915s, reader_cost: 0.00066, ips: 161.36456 images/sec
+[2022/04/10 11:14:51] root INFO: [Eval][Epoch 29][Iter: 200/310]MultiLabelLoss: 0.04499, loss: 0.04499, AccuracyScore: 0.98125, batch_cost: 0.09930s, reader_cost: 0.00089, ips: 161.12633 images/sec
+[2022/04/10 11:14:56] root INFO: [Eval][Epoch 29][Iter: 250/310]MultiLabelLoss: 0.04659, loss: 0.04659, AccuracyScore: 0.98750, batch_cost: 0.09928s, reader_cost: 0.00092, ips: 161.16350 images/sec
+[2022/04/10 11:15:01] root INFO: [Eval][Epoch 29][Iter: 300/310]MultiLabelLoss: 0.03704, loss: 0.03704, AccuracyScore: 0.97812, batch_cost: 0.09925s, reader_cost: 0.00092, ips: 161.20916 images/sec
+[2022/04/10 11:15:02] root INFO: [Eval][Epoch 29][Avg]MultiLabelLoss: 0.03073, loss: 0.03073, AccuracyScore: 0.98690, mAP: 0.94531
+[2022/04/10 11:15:02] root INFO: [Eval][Epoch 29][best metric: 0.9870860248274488]
+[2022/04/10 11:15:03] root INFO: Already save model in ./output/ResNet_CSRA/epoch_29
+[2022/04/10 11:15:04] root INFO: Already save model in ./output/ResNet_CSRA/latest
+[2022/04/10 11:15:05] root INFO: [Train][Epoch 30/30][Iter: 0/314]lr: 0.00000, AccuracyScore: 0.99687, MultiLabelLoss: 0.01813, loss: 0.01813, batch_cost: 0.32672s, reader_cost: 0.00289, ips: 48.97092 images/sec, eta: 0:01:42
+[2022/04/10 11:15:22] root INFO: [Train][Epoch 30/30][Iter: 50/314]lr: 0.00000, AccuracyScore: 0.99442, MultiLabelLoss: 0.01920, loss: 0.01920, batch_cost: 0.32620s, reader_cost: 0.00207, ips: 49.05017 images/sec, eta: 0:01:26
+[2022/04/10 11:15:38] root INFO: [Train][Epoch 30/30][Iter: 100/314]lr: 0.00000, AccuracyScore: 0.99452, MultiLabelLoss: 0.01864, loss: 0.01864, batch_cost: 0.32631s, reader_cost: 0.00169, ips: 49.03299 images/sec, eta: 0:01:09
+[2022/04/10 11:15:54] root INFO: [Train][Epoch 30/30][Iter: 150/314]lr: 0.00000, AccuracyScore: 0.99406, MultiLabelLoss: 0.01996, loss: 0.01996, batch_cost: 0.32672s, reader_cost: 0.00164, ips: 48.97091 images/sec, eta: 0:00:53
+[2022/04/10 11:16:11] root INFO: [Train][Epoch 30/30][Iter: 200/314]lr: 0.00000, AccuracyScore: 0.99423, MultiLabelLoss: 0.01984, loss: 0.01984, batch_cost: 0.32680s, reader_cost: 0.00150, ips: 48.95972 images/sec, eta: 0:00:37
+[2022/04/10 11:16:27] root INFO: [Train][Epoch 30/30][Iter: 250/314]lr: 0.00000, AccuracyScore: 0.99419, MultiLabelLoss: 0.01983, loss: 0.01983, batch_cost: 0.32672s, reader_cost: 0.00150, ips: 48.97172 images/sec, eta: 0:00:20
+[2022/04/10 11:16:43] root INFO: [Train][Epoch 30/30][Iter: 300/314]lr: 0.00000, AccuracyScore: 0.99419, MultiLabelLoss: 0.01998, loss: 0.01998, batch_cost: 0.32669s, reader_cost: 0.00148, ips: 48.97605 images/sec, eta: 0:00:04
+[2022/04/10 11:16:48] root INFO: [Train][Epoch 30/30][Avg]AccuracyScore: 0.99417, MultiLabelLoss: 0.01998, loss: 0.01998
+[2022/04/10 11:16:48] root INFO: [Eval][Epoch 30][Iter: 0/310]MultiLabelLoss: 0.08790, loss: 0.08790, AccuracyScore: 0.96562, batch_cost: 0.83578s, reader_cost: 0.73094, ips: 19.14370 images/sec
+[2022/04/10 11:16:53] root INFO: [Eval][Epoch 30][Iter: 50/310]MultiLabelLoss: 0.03036, loss: 0.03036, AccuracyScore: 0.99063, batch_cost: 0.09775s, reader_cost: 0.00012, ips: 163.67858 images/sec
+[2022/04/10 11:16:58] root INFO: [Eval][Epoch 30][Iter: 100/310]MultiLabelLoss: 0.00448, loss: 0.00448, AccuracyScore: 0.99687, batch_cost: 0.09847s, reader_cost: 0.00053, ips: 162.47844 images/sec
+[2022/04/10 11:17:03] root INFO: [Eval][Epoch 30][Iter: 150/310]MultiLabelLoss: 0.01709, loss: 0.01709, AccuracyScore: 0.99687, batch_cost: 0.09891s, reader_cost: 0.00067, ips: 161.77125 images/sec
+[2022/04/10 11:17:08] root INFO: [Eval][Epoch 30][Iter: 200/310]MultiLabelLoss: 0.05203, loss: 0.05203, AccuracyScore: 0.98125, batch_cost: 0.09908s, reader_cost: 0.00071, ips: 161.48766 images/sec
+[2022/04/10 11:17:13] root INFO: [Eval][Epoch 30][Iter: 250/310]MultiLabelLoss: 0.04377, loss: 0.04377, AccuracyScore: 0.98750, batch_cost: 0.09939s, reader_cost: 0.00086, ips: 160.98163 images/sec
+[2022/04/10 11:17:18] root INFO: [Eval][Epoch 30][Iter: 300/310]MultiLabelLoss: 0.03440, loss: 0.03440, AccuracyScore: 0.97500, batch_cost: 0.09940s, reader_cost: 0.00079, ips: 160.97371 images/sec
+[2022/04/10 11:17:19] root INFO: [Eval][Epoch 30][Avg]MultiLabelLoss: 0.02942, loss: 0.02942, AccuracyScore: 0.98682, mAP: 0.94581
+[2022/04/10 11:17:19] root INFO: [Eval][Epoch 30][best metric: 0.9870860248274488]
+[2022/04/10 11:17:20] root INFO: Already save model in ./output/ResNet_CSRA/epoch_30
+[2022/04/10 11:17:22] root INFO: Already save model in ./output/ResNet_CSRA/latest
