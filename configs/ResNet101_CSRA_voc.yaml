@@ -21,8 +21,7 @@ Arch:
   class_num: 20
   num_heads: 1
   lam: 0.1
-  backbone_weight: ./weights/ResNet101_pretrained
-  use_ssld: False
+  backbone_weight: True
 
 # loss function config for traing/eval process
 Loss:
@@ -52,8 +51,8 @@ DataLoader:
   Train:
     dataset:
       name: MultiLabelDataset
-      image_root: /home/yzj6850/zihua/datasets/VOCdevkit/VOC2007/
-      cls_label_path: /home/yzj6850/zihua/datasets/VOCdevkit/VOC2007/labels_trainval.txt
+      image_root: ./data/VOCdevkit/VOC2007/
+      cls_label_path: ./data/VOCdevkit/VOC2007/labels_trainval.txt
       transform_ops:
         - DecodeImage:
             to_rgb: True
@@ -81,8 +80,8 @@ DataLoader:
   Eval:
     dataset: 
       name: MultiLabelDataset
-      image_root: /home/yzj6850/zihua/datasets/VOCdevkit/VOC2007/
-      cls_label_path: /home/yzj6850/zihua/datasets/VOCdevkit/VOC2007/labels_test.txt
+      image_root: ./data/VOCdevkit/VOC2007/
+      cls_label_path: ./data/VOCdevkit/VOC2007/labels_test.txt
       transform_ops:
         - DecodeImage:
             to_rgb: True
